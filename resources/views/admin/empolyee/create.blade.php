@@ -1,0 +1,128 @@
+@extends('admin.common.layout')
+@section('content')
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-12 grid-margin">
+                <div class="card">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    <div class="card-body">
+                        <h4 class="card-title">Add new visitor</h4>
+                        <form class="form-sample" action="" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <p class="card-description">
+                                Personal info
+                            </p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">First Name</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" name="fname" placeholder="First Name"
+                                                class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">Last Name</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" name="lname" placeholder="Last Name"
+                                                class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">Gender</label>
+                                        <div class="col-sm-4">
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input type="radio" class="form-check-input" name="gender"
+                                                        value="Male" checked>
+                                                    Male
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input type="radio" class="form-check-input" name="gender"
+                                                        value="Female">
+                                                    Female
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">Phone</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" name="mobilenumber" placeholder="Mobile Number"
+                                                class="form-control" maxlength="10" required="true" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">CNIC </label>
+                                        <div class="col-sm-9">
+                                            <input type="text" name="cnic_number" placeholder="XXXXX-XXXXXXX-X"
+                                                class="form-control" />
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">Address1 </label>
+                                        <div class="col-sm-9">
+                                            <input type="text" name="address1" placeholder="Address"
+                                                class="form-control" />
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">Address2 </label>
+                                        <div class="col-sm-9">
+                                            <input type="text" name="address2" placeholder="Address"
+                                                class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label>File upload</label>
+                                <div class="input-group col-xs-12">
+                                    <input type="file" name="image" class="form-control file-upload-info">
+                                    <span class="input-group-append">
+                                        <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary mr-2 float-sm-right">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

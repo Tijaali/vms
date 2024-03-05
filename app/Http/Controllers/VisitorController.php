@@ -6,6 +6,7 @@ use App\Models\Visitor;
 use App\Rules\CnicFormat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Contracts\DataTable;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -23,12 +24,27 @@ class VisitorController extends Controller
         );
         $input = $request->all();
 
-        if ($image = $request->file('image')) {
-            $destinationPath = 'images/';
-            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-            $image->move($destinationPath, $profileImage);
-            $input['image'] = "$profileImage";
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $filename = time().'.'.$file->getClientOriginalExtension();
+            $filePath = 'uploads/visitors/' . $filename;
+
+            // Store the file
+            Storage::disk('public')->put($filePath, file_get_contents($file));
+
+            $input["image"] = "$filePath";
         }
+
+        // if($request->hasfile('image'))
+        // {
+        //     $file = $request->file('image');
+        //     $extenstion = $file->getClientOriginalExtension();
+        //     $filename = time().'.'.$extenstion;
+        //     $destinationPath = '/uploads/students';
+        //     $file->move('storage/uploads/students/', $filename);
+        //     $input["image"] = "$destinationPath/$filename";
+        // }
+
         Visitor::create($input);
         return redirect()->route('visitor.index')->with('alert-success','Visitor has been added successfully');
     }
@@ -54,11 +70,14 @@ class VisitorController extends Controller
     }
     public function update(Request $request, Visitor $visitor) {
         $input = $request->all();
-        if($image= $request->file("image")){
-            $destinationPath = 'images/';
-            $profileImage = date('YmdHis').'.'.$image->getClientOriginalExtension();
-            $image->move($destinationPath,$profileImage);
-            $input['image'] = "$profileImage";
+
+        if ($request->hasFile('image')) {
+            Storage::disk('public')->delete($visitor->image);
+            $file = $request->file('image');
+            $filename = time().'.'.$file->getClientOriginalExtension();
+            $filePath = 'uploads/visitors/' . $filename;
+            Storage::disk('public')->put($filePath, file_get_contents($file));
+            $input["image"] = "$filePath";
         }
         else
         {

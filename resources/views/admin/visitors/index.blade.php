@@ -61,7 +61,7 @@
                     {
                         data: 'image',
                         render:function(data){
-                            return `<img src='images/${data}'>`;
+                            return `<img src='/storage/${data}'>`;
                         }
                     },
                     {

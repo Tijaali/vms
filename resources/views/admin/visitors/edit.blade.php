@@ -6,7 +6,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Edit visitor</h4>
-                            <form class="form-sample" action="{{route('visitor.update',[$visitor->id])}}" method="POST">
+                            <form class="form-sample" action="{{route('visitor.update',[$visitor->id])}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 <p class="card-description">
@@ -167,7 +167,7 @@
                                     <label>File upload</label>
                                     <div class="input-group col-xs-12">
                                         <input type="file" name="image" class="form-control file-upload-info">
-                                        <img src="/images/{{ $visitor->image }}" width="300px" height="300px">
+                                        <img src="/storage/{{ $visitor->image }}" width="300px" height="300px">
                                         <span class="input-group-append">
                                             <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
                                         </span>
