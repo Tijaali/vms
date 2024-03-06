@@ -10,23 +10,19 @@
                             <div class="col-12">
                                 <div class="table-responsive">
                                     <table class="display expandable-table datatable" style="width:100%">
-                                        <thead>
+                                        <thead class="text-center">
                                             <tr>
                                                 <th>No</th>
                                                 <th>image</th>
                                                 <th>First Name</th>
-                                                <th>Last Name</th>
-                                                <th>Gender</th>
-                                                <th>Phone</th>
                                                 <th>CNIC</th>
-                                                <th>Address1</th>
-                                                <th>Address1</th>
                                                 <th>Category</th>
                                                 <th>Depart</th>
                                                 <th>Visitee</th>
                                                 <th>From</th>
                                                 <th>To</th>
-                                                <th>Purpose</th>
+                                                <th>Status</th>
+                                                <th>Approval</th>
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>
@@ -60,7 +56,7 @@
                     },
                     {
                         data: 'image',
-                        render:function(data){
+                        render: function(data) {
                             return `<img src='/storage/${data}'>`;
                         }
                     },
@@ -68,22 +64,7 @@
                         data: 'fname'
                     },
                     {
-                        data: 'lname'
-                    },
-                    {
-                        data: 'gender'
-                    },
-                    {
-                        data: 'mobilenumber'
-                    },
-                    {
                         data: 'cnic_number'
-                    },
-                    {
-                        data: 'address1'
-                    },
-                    {
-                        data: 'address2'
                     },
                     {
                         data: 'category'
@@ -101,23 +82,40 @@
                         data: 'to'
                     },
                     {
-                        data: 'purpose'
+                        data: 'status',
+                        render: function(data) {
+                            return `<span class="btn ${data === 'approved' ? 'btn-success' : 'btn-danger'}">${data}</span>`;
+                        }
                     },
                     {
                         data: 'id',
                         render: function(data) {
-                            return `<button type="button" class="btn btn-outline-primary btn-icon-text m-2" onclick="alertConfirm('{{ route('visitor.show', ['visitor' => ':visitor']) }}'.replace(/:visitor/g, ${data}),'confirm','Are you sure you want to edit','warning','show','cancel')">
+                            return `
+                            <div class='d-flex'>
+                                <button type="button" class="btn btn-primary p-2 m-2" onclick="alertConfirm('{{ route('visitor.approve', ['visitor' => ':visitor']) }}'.replace(/:visitor/g, ${data}),'confirm','Are you sure you want to allow','warning','allow','cancel')">
+                          Allow
+                        </button>
+                            <button type="button" class="btn btn-danger p-2 m-2" onclick="alertConfirm('{{ route('visitor.reject', ['visitor' => ':visitor']) }}'.replace(/:visitor/g, ${data}),'confirm','Are you sure you want to reject','warning','reject','cancel')">
+                          Reject
+                        </button>
+                      </div>`;
+                        }
+                    },
+                    {
+                        data: 'id',
+                        render: function(data) {
+                            return `
+                            <div class='d-flex'>
+                                <button type="button" class="btn btn-primary p-2 m-2" onclick="alertConfirm('{{ route('visitor.show', ['visitor' => ':visitor']) }}'.replace(/:visitor/g, ${data}),'confirm','Are you sure you want to edit','warning','show','cancel')">
                           Show
-                          <i class="ti-file btn-icon-append"></i>
                         </button>
-                            <button type="button" class="btn btn-outline-secondary btn-icon-text m-2" onclick="alertConfirm('{{ route('visitor.edit', ['visitor' => ':visitor']) }}'.replace(/:visitor/g, ${data}),'confirm','Are you sure you want to edit','warning','edit','cancel')">
+                            <button type="button" class="btn btn-secondary p-2 m-2" onclick="alertConfirm('{{ route('visitor.edit', ['visitor' => ':visitor']) }}'.replace(/:visitor/g, ${data}),'confirm','Are you sure you want to edit','warning','edit','cancel')">
                           Edit
-                          <i class="ti-file btn-icon-append"></i>
                         </button>
-                        <button type="button" class="btn btn-outline-success btn-icon-text" onclick="alertConfirm('{{ route('visitor.delete', ['visitor' => ':visitor']) }}'.replace(/:visitor/g, ${data}),'confirm','Are you sure you want to delete','warning','delete','cancel')"">
-                          <i class="ti-trash btn-icon-prepend"></i>
+                        <button type="button" class="btn btn-danger p-2 m-2" onclick="alertConfirm('{{ route('visitor.delete', ['visitor' => ':visitor']) }}'.replace(/:visitor/g, ${data}),'confirm','Are you sure you want to delete','warning','delete','cancel')"">
                           Delete
-                        </button>`;
+                        </button>
+                                </div>`;
                         }
                     },
 

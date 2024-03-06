@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('visitee');
             $table->dateTime('from');
             $table->dateTime('to');
+            $table->string('status')->nullable();
             $table->longText('purpose');
             $table->string('image');
             $table->timestamps();

@@ -41,7 +41,7 @@
             <div class="collapse" id="manage_employee">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"><a class="nav-link" href="{{route('empoylee.create')}}">Add new Employee</a></li>
-                <li class="nav-item"><a class="nav-link" href="">All Employees</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{route('empoylee.index')}}">All Employees</a></li>
               </ul>
             </div>
           </li>

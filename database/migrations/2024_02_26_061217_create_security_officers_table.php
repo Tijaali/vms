@@ -15,17 +15,21 @@ return new class extends Migration
             $table->id();
             $table->string('fname');
             $table->string('lname');
-            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('password');
             $table->string('gender');
+            $table->dateTime('date_of_birth');
             $table->string('mobilenumber');
             $table->string('cnic_number', 15)->unique();
             $table->string('address1');
             $table->string('address2');
+            $table->string('designation');
+            $table->unsignedBigInteger('department_id')->nullable();
+            $table->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');
+            $table->dateTime('shift_start');
+            $table->dateTime('shift_end');
+            $table->dateTime('joing_date');
             $table->string('image');
-            // $table->unsignedBigInteger('category_id');
-            // $table->foreign('category_id')->references('id')->on('visitor_categories')->onDelete('cascade');
-            // $table->unsignedBigInteger('department_id')->nullable();
-            // $table->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');
             $table->timestamps();
         });
     }

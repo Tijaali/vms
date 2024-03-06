@@ -90,4 +90,14 @@ class VisitorController extends Controller
         $visitor->delete();
         return redirect()->back()->with('alert-success','Visitor has been deleted successfully');
     }
+    public function approve(Request $request, Visitor $visitor) {
+        $visitor->status='approved';
+        $visitor->save();
+        return redirect()->back();
+    }
+    public function reject(Request $request, Visitor $visitor) {
+        $visitor->status='rejected';
+        $visitor->save();
+        return redirect()->back();
+    }
 }

@@ -163,16 +163,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label>File upload</label>
-                                    <div class="input-group col-xs-12">
-                                        <input type="file" name="image" class="form-control file-upload-info">
-                                        <img src="/storage/{{ $visitor->image }}" width="300px" height="300px">
-                                        <span class="input-group-append">
-                                            <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                                        </span>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label" >Photo</label>
+                                            <div class="input-group col-sm-9">
+                                                <input type="file" name="image" class="form-control file-upload-info" />
+                                                <img src="/storage/{{ $visitor->image }}" width="50px" height="45px">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+
 
                                 <button type="submit" class="btn btn-primary mr-2 float-sm-right">Submit</button>
                             </form>

@@ -11,6 +11,9 @@ class Department extends Model
     public function visitor() {
         return $this->hasOne(Visitor::class);
     }
+    public function security() {
+        return $this->hasOne(SecurityOfficer::class);
+    }
     public static function allDepartments(){
         return self::all();
     }
