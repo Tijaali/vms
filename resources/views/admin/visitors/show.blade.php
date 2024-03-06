@@ -26,7 +26,7 @@
                             Personal info
                         </p>
                         <div class="row m-3">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="row">
                                     <label class="col-sm-3 p-2">First Name</label>
                                     <div class="col-sm-9 border p-2 mb-3 card-description">
@@ -34,7 +34,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="row">
                                     <label class="col-sm-3 p-2">Last Name</label>
                                     <div class="col-sm-9 border p-2 mb-3 card-description">
@@ -44,7 +44,7 @@
                             </div>
                         </div>
                         <div class="row m-3">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="row">
                                     <label class="col-sm-3 p-2">Gender</label>
                                     <div class="col-sm-9 border p-2 mb-3 card-description">
@@ -52,7 +52,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="row">
                                     <label class="col-sm-3 p-2">Phone</label>
                                     <div class="col-sm-9 border p-2 mb-3 card-description">
@@ -112,7 +112,7 @@
                             </div>
                         </div>
                         <div class="row m-3">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="row">
                                     <label class="col-sm-3 p-2">From</label>
                                     <div class="col-sm-9 border p-2 mb-3 card-description">
@@ -120,7 +120,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="row">
                                     <label class="col-sm-3 p-2">To</label>
                                     <div class="col-sm-9 border p-2 mb-3 card-description">
@@ -130,7 +130,7 @@
                             </div>
                         </div>
                         <div class="row m-3">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="row">
                                     <label class="col-sm-3 p-2">Visitee</label>
                                     <div class="col-sm-9 border p-2 mb-3 card-description">
@@ -138,7 +138,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="row">
                                     <label class="col-sm-3 p-2">Purpose</label>
                                     <div class="col-sm-9 border p-2 mb-3 card-description">
