@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Visitor;
 use App\Rules\CnicFormat;
+use Barryvdh\DomPDF\Facade\Pdf ;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Storage;
@@ -52,8 +53,8 @@ class VisitorController extends Controller
         return view('admin.visitors.index');
 
     }
-    public function show(Visitor $visitor){
-        return view('admin.visitors.show',compact('visitor'));
+    public function show(Request $request, Visitor $visitor) {
+        return view('admin.visitors.show', compact('visitor'));
     }
     public function ajax(Request $request) {
         $query = Visitor::query();
@@ -100,4 +101,10 @@ class VisitorController extends Controller
         $visitor->save();
         return redirect()->back();
     }
+    public function createPdf()
+{
+    $visitors = Visitor::all();
+    $pdf = Pdf::loadView('admin.visitors.pdf', compact('visitors'));
+    return $pdf->download('visitors.pdf'); // Download the generated PDF
+}
 }

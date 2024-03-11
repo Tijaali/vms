@@ -6,6 +6,12 @@
                 <div class="card">
                     <div class="card-body">
                         <p class="card-title">All visitors</p>
+                        <div class="col-md-6 mb-4 mb-xl-0">
+                            <a href="{{route('visitor.createPdf')}}" id="generateReportBtn" class="btn btn-sm btn-primary shadow-sm">
+                                <i class="mdi mdi-arrow-down-bold-hexagon-outline text-white"></i>
+                                Generate Report
+                            </a>
+                        </div>
                         <div class="row">
                             <div class="col-12">
                                 <div class="table-responsive">

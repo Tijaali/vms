@@ -29,6 +29,7 @@ Route::group(["prefix"=>'visitor'],function(){
     Route::get('/{visitor}/delete',[VisitorController::class,'delete'])->name('visitor.delete');
     Route::get('/{visitor}/approve',[VisitorController::class,'approve'])->name('visitor.approve');
     Route::get('/{visitor}/reject',[VisitorController::class,'reject'])->name('visitor.reject');
+    Route::get('/createPdf',[VisitorController::class,'createPdf'])->name('visitor.createPdf');
 
 });
 Route::group(["prefix"=>'empoylee'],function () {

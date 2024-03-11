@@ -5,12 +5,12 @@
             <div class="col-md-12 grid-margin">
                 <div class="row">
                     <div class="col-md-6 mb-4 mb-xl-0">
-                        <h3 class="font-weight-bold">Welcome {{$visitor->fname}}</h3>
+                        <h3 class="font-weight-bold">Welcome {{ $visitor->fname }}</h3>
                         <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span
                                 class="text-primary">3 unread alerts!</span></h6>
                     </div>
                     <div class="col-md-6 mb-4 mb-xl-0">
-                        <a href="#" class="btn btn-sm btn-primary shadow-sm">
+                        <a id="generateReportBtn" class="btn btn-sm btn-primary shadow-sm">
                             <i class="mdi mdi-arrow-down-bold-hexagon-outline text-white"></i>
                             Generate Report
                         </a>
@@ -153,11 +153,11 @@
             <div class="col-md-4 grid-margin stretch-card">
                 <div class="card mb-4">
                     <div class="card-body text-center">
-                        <img src="/storage/{{$visitor->image}}" alt="avatar"
-                            class="rounded-circle img-fluid" style="width: 150px;">
-                        <h5 class="my-3">{{$visitor->fname}}</h5>
-                        <p class="text-muted mb-1">{{$visitor->category->name}}</p>
-                        <p class="text-muted mb-4">{{$visitor->address1}}</p>
+                        <img src="/storage/{{ $visitor->image }}" alt="avatar" class="rounded-circle img-fluid"
+                            style="width: 150px;">
+                        <h5 class="my-3">{{ $visitor->fname }}</h5>
+                        <p class="text-muted mb-1">{{ $visitor->category->name }}</p>
+                        <p class="text-muted mb-4">{{ $visitor->address1 }}</p>
                         <div class="d-flex justify-content-center mb-2">
                             <button type="button" class="btn btn-primary">Allow</button>
                             <button type="button" class="btn btn-outline-primary ms-1">Deny</button>
