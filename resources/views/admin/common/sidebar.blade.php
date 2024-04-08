@@ -1,7 +1,7 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="route('dashboard')">
+            <a class="nav-link" href="{{route('dashboard')}}">
               <i class="icon-grid menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
@@ -46,16 +46,16 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#badges" aria-expanded="false" aria-controls="charts">
+            <a class="nav-link" data-toggle="collapse" href="#roles" aria-expanded="false" aria-controls="charts">
               <i class="icon-bar-graph menu-icon"></i>
-              <span class="menu-title">Badges</span>
+              <span class="menu-title">Roles</span>
               <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="badges">
+            <div class="collapse" id="roles">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"><a class="nav-link" href="">Create badge</a></li>
-                <li class="nav-item"><a class="nav-link" href="">Edit badge </a></li>
-                <li class="nav-item"><a class="nav-link" href="">All badge</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{route('role.create')}}">Create role</a></li>
+                {{-- <li class="nav-item"><a class="nav-link" href="">Edit role </a></li> --}}
+                <li class="nav-item"><a class="nav-link" href="">All role</a></li>
               </ul>
             </div>
           </li>
