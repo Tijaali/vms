@@ -1,24 +1,54 @@
 @extends('admin.common.layout')
 @section('page-css')
     <style>
-        table {
-            width: 100% !important;
-        }
-
-        table thead {
-            background-color: blue;
-        }
-
-        .tablebody td {
+        .datatable {
+            font-family: Arial, sans-serif;
             width: 100%;
-            background-color: red;
-
+            border-collapse: collapse;
         }
 
-        .tablebody img {
-            width: 50px;
-            height: 50px;
+        .datatable thead {
+            background-color: #4CAF50;
+            color: white;
+        }
 
+        .datatable th,
+        .datatable td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        .datatable tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .datatable .btn {
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .datatable .btn-primary {
+            background-color: #007bff;
+        }
+
+        .datatable .btn-secondary {
+            background-color: #6c757d;
+        }
+
+        .datatable .btn-success {
+            background-color: #28a745;
+        }
+
+        .datatable .btn-danger {
+            background-color: #dc3545;
+        }
+
+        .datatable img {
+            width: 50px;
+            height: auto;
+            border-radius: 50%;
         }
     </style>
 @endsection
@@ -51,8 +81,8 @@
                                 </div>
                             </div> --}}
                             <div class="col-12">
-                                <div class="table-responsive">
-                                    <table class="display  datatable" style="width:100%">
+                                <div class="">
+                                    <table class="datatable" style="width:100%">
                                         <thead class="text-center">
                                             <tr>
                                                 <th>No</th>
@@ -73,7 +103,6 @@
 
                                         </tbody>
                                     </table>
-
                                 </div>
                             </div>
                         </div>
