@@ -14476,7 +14476,7 @@
 		"sInfo": "dataTables_info",
 		"sPaging": "dataTables_paginate paging_", /* Note that the type is postfixed */
 		"sLength": "dataTables_length",
-		"sProcessing": "dataTables_processing",
+		"sProcessing": "loader",
 	
 		/* Sorting */
 		"sSortAsc": "sorting_asc",
