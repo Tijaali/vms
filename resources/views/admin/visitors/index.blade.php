@@ -1,4 +1,26 @@
 @extends('admin.common.layout')
+@section('page-css')
+<style>
+    table{
+        width: 100% !important;
+    }
+    table thead{
+        background-color: blue;
+    }
+    
+.tablebody td{
+    width: 100%;
+    background-color: red;
+    
+}
+.tablebody img{
+    width: 50px;
+    height: 50px;
+    
+}
+</style>
+    
+@endsection
 @section('content')
     <div class="content-wrapper">
         <div class="row">
@@ -15,7 +37,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="table-responsive">
-                                    <table class="display expandable-table datatable" style="width:100%">
+                                    <table class="display  datatable" style="width:100%">
                                         <thead class="text-center">
                                             <tr>
                                                 <th>No</th>
@@ -32,7 +54,7 @@
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody class="tablebody">
 
                                         </tbody>
                                     </table>
@@ -98,10 +120,10 @@
                         render: function(data) {
                             return `
                             <div class='d-flex'>
-                                <button type="button" class="btn btn-primary p-2 m-2" onclick="alertConfirm('{{ route('visitor.approve', ['visitor' => ':visitor']) }}'.replace(/:visitor/g, ${data}),'confirm','Are you sure you want to allow','warning','allow','cancel')">
+                                <button type="button" class="btn btn-primary p-2 my-2" onclick="alertConfirm('{{ route('visitor.approve', ['visitor' => ':visitor']) }}'.replace(/:visitor/g, ${data}),'confirm','Are you sure you want to allow','warning','allow','cancel')">
                           Allow
                         </button>
-                            <button type="button" class="btn btn-danger p-2 m-2" onclick="alertConfirm('{{ route('visitor.reject', ['visitor' => ':visitor']) }}'.replace(/:visitor/g, ${data}),'confirm','Are you sure you want to reject','warning','reject','cancel')">
+                            <button type="button" class="btn btn-danger p-2 my-2" onclick="alertConfirm('{{ route('visitor.reject', ['visitor' => ':visitor']) }}'.replace(/:visitor/g, ${data}),'confirm','Are you sure you want to reject','warning','reject','cancel')">
                           Reject
                         </button>
                       </div>`;
@@ -112,13 +134,13 @@
                         render: function(data) {
                             return `
                             <div class='d-flex'>
-                                <button type="button" class="btn btn-primary p-2 m-2" onclick="alertConfirm('{{ route('visitor.show', ['visitor' => ':visitor']) }}'.replace(/:visitor/g, ${data}),'confirm','Are you sure you want to edit','warning','show','cancel')">
+                                <button type="button" class="btn btn-primary p-2 my-2" onclick="alertConfirm('{{ route('visitor.show', ['visitor' => ':visitor']) }}'.replace(/:visitor/g, ${data}),'confirm','Are you sure you want to edit','warning','show','cancel')">
                           Show
                         </button>
-                            <button type="button" class="btn btn-secondary p-2 m-2" onclick="alertConfirm('{{ route('visitor.edit', ['visitor' => ':visitor']) }}'.replace(/:visitor/g, ${data}),'confirm','Are you sure you want to edit','warning','edit','cancel')">
+                            <button type="button" class="btn btn-secondary p-2 my-2" onclick="alertConfirm('{{ route('visitor.edit', ['visitor' => ':visitor']) }}'.replace(/:visitor/g, ${data}),'confirm','Are you sure you want to edit','warning','edit','cancel')">
                           Edit
                         </button>
-                        <button type="button" class="btn btn-danger p-2 m-2" onclick="alertConfirm('{{ route('visitor.delete', ['visitor' => ':visitor']) }}'.replace(/:visitor/g, ${data}),'confirm','Are you sure you want to delete','warning','delete','cancel')"">
+                        <button type="button" class="btn btn-danger p-2 my-2" onclick="alertConfirm('{{ route('visitor.delete', ['visitor' => ':visitor']) }}'.replace(/:visitor/g, ${data}),'confirm','Are you sure you want to delete','warning','delete','cancel')"">
                           Delete
                         </button>
                                 </div>`;
