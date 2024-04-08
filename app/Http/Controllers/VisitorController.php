@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Contracts\DataTable;
 use Yajra\DataTables\Facades\DataTables;
+use App\Models\Notification;
 
 class VisitorController extends Controller
 {
@@ -50,6 +51,8 @@ class VisitorController extends Controller
         return redirect()->route('visitor.index')->with('alert-success','Visitor has been added successfully');
     }
     public function index(){
+        // $notifications = Notification::orderBy('created_at', 'desc')->take(10)->get();
+        // return view('admin.visitors.index', compact('notifications'));
         return view('admin.visitors.index');
 
     }
@@ -91,16 +94,55 @@ class VisitorController extends Controller
         $visitor->delete();
         return redirect()->back()->with('alert-success','Visitor has been deleted successfully');
     }
-    public function approve(Request $request, Visitor $visitor) {
-        $visitor->status='approved';
-        $visitor->save();
-        return redirect()->back();
+    public function approve(Request $request, Visitor $visitor)
+    {
+    $visitor->status = 'approved';
+    $visitor->save();
+
+    // Add a notification for the visitor approval
+    Notification::create([
+    'visitor_id' => $visitor->id,
+    'message' => "Visitor {$visitor->name} has been approved." // Adjust according to your notification structure
+    ]);
+
+    // Check if the request expects a JSON response (AJAX call)
+    if ($request->expectsJson()) {
+    return response()->json(['message' => 'Visitor has been approved and notified.']);
     }
-    public function reject(Request $request, Visitor $visitor) {
-        $visitor->status='rejected';
-        $visitor->save();
-        return redirect()->back();
+
+    return redirect()->back()->with('success', 'Visitor has been approved and notified.');
     }
+
+    public function reject(Request $request, Visitor $visitor)
+    {
+    $visitor->status = 'rejected';
+    $visitor->save();
+
+    // Add a notification for the visitor rejection
+    Notification::create([
+    'visitor_id' => $visitor->id,
+    'message' => "Visitor {$visitor->name} has been rejected." // Adjust according to your notification structure
+    ]);
+
+    // Check if the request expects a JSON response (AJAX call)
+    if ($request->expectsJson()) {
+    return response()->json(['message' => 'Visitor has been rejected and notified.']);
+    }
+
+    return redirect()->back()->with('error', 'Visitor has been rejected and notified.');
+    }
+
+
+    // public function approve(Request $request, Visitor $visitor) {
+    //     $visitor->status='approved';
+    //     $visitor->save();
+    //     return redirect()->back();
+    // }
+    // public function reject(Request $request, Visitor $visitor) {
+    //     $visitor->status='rejected';
+    //     $visitor->save();
+    //     return redirect()->back();
+    // }
     public function createPdf()
 {
     $visitors = Visitor::all();

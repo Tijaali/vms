@@ -1,25 +1,26 @@
 @extends('admin.common.layout')
 @section('page-css')
-<style>
-    table{
-        width: 100% !important;
-    }
-    table thead{
-        background-color: blue;
-    }
-    
-.tablebody td{
-    width: 100%;
-    background-color: red;
-    
-}
-.tablebody img{
-    width: 50px;
-    height: 50px;
-    
-}
-</style>
-    
+    <style>
+        table {
+            width: 100% !important;
+        }
+
+        table thead {
+            background-color: blue;
+        }
+
+        .tablebody td {
+            width: 100%;
+            background-color: red;
+
+        }
+
+        .tablebody img {
+            width: 50px;
+            height: 50px;
+
+        }
+    </style>
 @endsection
 @section('content')
     <div class="content-wrapper">
@@ -29,12 +30,26 @@
                     <div class="card-body">
                         <p class="card-title">All visitors</p>
                         <div class="col-md-6 mb-4 mb-xl-0">
-                            <a href="{{route('visitor.createPdf')}}" id="generateReportBtn" class="btn btn-sm btn-primary shadow-sm">
+                            <a href="{{ route('visitor.createPdf') }}" id="generateReportBtn"
+                                class="btn btn-sm btn-primary shadow-sm">
                                 <i class="mdi mdi-arrow-down-bold-hexagon-outline text-white"></i>
                                 Generate Report
                             </a>
                         </div>
                         <div class="row">
+                            {{-- <div class="col-12">
+                                // Notifications //
+                                <div class="container">
+                                    <div class="notifications">
+                                        <h4>Notifications</h4>
+                                        <ul>
+                                            @foreach ($notifications as $notification)
+                                                <li>{{ $notification->message }}
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div> --}}
                             <div class="col-12">
                                 <div class="table-responsive">
                                     <table class="display  datatable" style="width:100%">
