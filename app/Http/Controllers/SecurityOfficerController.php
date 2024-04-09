@@ -3,15 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Models\SecurityOfficer;
+use App\Models\User;
 use App\Models\Visitor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Spatie\Permission\Models\Role;
 use Yajra\DataTables\Facades\DataTables;
 
 class SecurityOfficerController extends Controller
 {
+        function __construct()
+    {
+         $this->middleware('permission:employee-list|employee-create|employee-edit|employee-delete', ['only' => ['index','store']]);
+         $this->middleware('permission:employee-create', ['only' => ['create','store']]);
+         $this->middleware('permission:employee-edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:employee-delete', ['only' => ['delete']]);
+    }
     public function create()
     {
         return view('admin.employee.create');
@@ -28,6 +37,17 @@ class SecurityOfficerController extends Controller
             $input["image"] = $filepath;
         }
         $securityOfficer->create($input);
+        
+        $user = User::create([
+            'name'=> $request->input('name'),
+            'email'=> $request->input('email'),
+            'password'=> Hash::make($request->input('password'))
+        ]);
+
+    $securityRole = Role::where('name', 'security')->first();
+    
+    $user->assignRole($securityRole);
+        $securityOfficer->user()->associate($user);
         return redirect()->route('empoylee.index')->with('alert-success', 'Security Officer has been created');
     }
     public function index()

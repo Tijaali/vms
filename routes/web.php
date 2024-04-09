@@ -54,12 +54,12 @@ Route::group(['middleware'=>'auth'],function () {
     Route::group(["prefix"=>'role'],function () {
         Route::get('/create',[RoleController::class,'create'])->name('role.create');
         Route::post('/store',[RoleController::class,'store'])->name('role.store');
-        // Route::get('/list',[RoleController::class,'index'])->name('role.index');
+        Route::get('/list',[RoleController::class,'index'])->name('role.index');
         // Route::post('/ajax',[RoleController::class,'ajax'])->name('role.ajax');
-        // Route::get('/{role}/show',[RoleController::class,'show'])->name('role.show');
-        // Route::get('/{role}/edit',[RoleController::class,'edit'])->name('role.edit');
-        // Route::put('/{role}/update',[RoleController::class,'update'])->name('role.update');
-        // Route::get('/{role}/delete',[RoleController::class,'delete'])->name('role.delete');
+        Route::get('/{role}/show',[RoleController::class,'show'])->name('role.show');
+        Route::get('/{role}/edit',[RoleController::class,'edit'])->name('role.edit');
+        Route::put('/{role}/update',[RoleController::class,'update'])->name('role.update');
+        Route::get('/{role}/delete',[RoleController::class,'delete'])->name('role.delete');
     });
 });
 

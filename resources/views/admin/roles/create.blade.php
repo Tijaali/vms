@@ -15,8 +15,7 @@
                     @endif
                     <div class="card-body">
                         <h4 class="card-title">Add new roles</h4>
-                        <form class="form-sample" action="{{route('role.store')}}" method="POST"
-                            enctype="multipart/form-data">
+                        <form class="form-sample" action="{{route('role.store')}}" method="POST">
                             @csrf
                             <div class="row">
                                 <div class="col-12">

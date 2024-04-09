@@ -14,6 +14,13 @@ use App\Models\Notification;
 
 class VisitorController extends Controller
 {
+    function __construct()
+    {
+         $this->middleware('permission:visitor-list|visitor-create|visitor-edit|visitor-delete', ['only' => ['index','store']]);
+         $this->middleware('permission:visitor-create', ['only' => ['create','store']]);
+         $this->middleware('permission:visitor-edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:visitor-delete', ['only' => ['delete']]);
+    }
     public function create()  {
         return view('admin.visitors.create');
     }

@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('security_officers', function (Blueprint $table) {
             $table->id();
-            $table->string('fname');
-            $table->string('lname');
+            $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
             $table->string('gender');

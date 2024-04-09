@@ -92,8 +92,6 @@
                                                 <th>Category</th>
                                                 <th>Depart</th>
                                                 <th>Visitee</th>
-                                                <th>From</th>
-                                                <th>To</th>
                                                 <th>Status</th>
                                                 <th>Approval</th>
                                                 <th>Actions</th>
@@ -147,12 +145,7 @@
                     {
                         data: 'visitee'
                     },
-                    {
-                        data: 'from'
-                    },
-                    {
-                        data: 'to'
-                    },
+                    
                     {
                         data: 'status',
                         render: function(data) {

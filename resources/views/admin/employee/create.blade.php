@@ -21,16 +21,16 @@
                                 Personal info
                             </p>
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label">First Name</label>
+                                        <label class="col-sm-3 col-form-label"> Name</label>
                                         <div class="col-sm-9">
-                                            <input type="text" name="fname" placeholder="First Name"
+                                            <input type="text" name="name" placeholder="Name"
                                                 class="form-control" />
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                {{-- <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Last Name</label>
                                         <div class="col-sm-9">
@@ -38,7 +38,7 @@
                                                 class="form-control" />
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
