@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Contracts\DataTable;
 use Yajra\DataTables\Facades\DataTables;
 use App\Models\Notification;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
 
 class VisitorController extends Controller
 {
@@ -32,6 +35,7 @@ class VisitorController extends Controller
 
         );
         $input = $request->all();
+        $input['password'] = Hash::make($input['password']);
 
         if ($request->hasFile('image')) {
             $file = $request->file('image');
@@ -44,17 +48,21 @@ class VisitorController extends Controller
             $input["image"] = "$filePath";
         }
 
-        // if($request->hasfile('image'))
-        // {
-        //     $file = $request->file('image');
-        //     $extenstion = $file->getClientOriginalExtension();
-        //     $filename = time().'.'.$extenstion;
-        //     $destinationPath = '/uploads/students';
-        //     $file->move('storage/uploads/students/', $filename);
-        //     $input["image"] = "$destinationPath/$filename";
-        // }
-
-        Visitor::create($input);
+            // Create the user
+            $user = User::create([
+                'name' => $input['name'],
+                'email' => $input['email'],
+                'password' => $input['password']
+            ]);
+        
+            // Assign the 'security' role to the user
+            $visitorRole = Role::where('name', 'visitor')->first();
+            $user->assignRole($visitorRole);
+            $input['user_id'] = $user->id;
+            // Create the security officer and associate the user with it
+            $visitor = $visitor->create($input);
+            $visitor->user()->associate($user);
+            $visitor->save();
         return redirect()->route('visitor.index')->with('alert-success','Visitor has been added successfully');
     }
     public function index(){
@@ -94,6 +102,12 @@ class VisitorController extends Controller
         {
             unset($input['image']);
         }
+        $user= $visitor->user;
+       $user->update([
+        'name' => $input['name'],
+        'email' => $input['email'],
+        'password' => $input['password']
+       ]);
         $visitor->update($input);
         return redirect()->route('visitor.index')->with('alert-success','Visitor has been updated successfully');
     }

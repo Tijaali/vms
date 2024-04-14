@@ -22,21 +22,12 @@
                                 Personal info
                             </p>
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">First Name</label>
                                         <div class="col-sm-9">
-                                            <input type="text" name="fname" placeholder="First Name"
-                                                class="form-control" value="{{old('fname',$securityOfficer->fname)}}" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label">Last Name</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" name="lname" placeholder="Last Name"
-                                                class="form-control" value="{{old('lname',$securityOfficer->lname)}}" />
+                                            <input type="text" name="name" placeholder="Name"
+                                                class="form-control" value="{{old('fname',$securityOfficer->name)}}" />
                                         </div>
                                     </div>
                                 </div>

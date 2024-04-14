@@ -17,4 +17,5 @@ class Department extends Model
     public static function allDepartments(){
         return self::all();
     }
+    protected $guarded =[];
 }

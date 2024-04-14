@@ -27,6 +27,13 @@ class SecurityOfficerController extends Controller
     }
     public function store(Request $request, SecurityOfficer $securityOfficer)
     {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            // 'password' => 'required|string|min:8',
+            // 'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust the image validation rules as needed
+        ]);
+    
         $input = $request->all();
         $input['password'] = Hash::make($input['password']);
         if ($request->hasFile('image')) {
@@ -36,18 +43,23 @@ class SecurityOfficerController extends Controller
             Storage::disk('public')->put($filepath, file_get_contents($file));
             $input["image"] = $filepath;
         }
-        $securityOfficer->create($input);
-        
-        $user = User::create([
-            'name'=> $request->input('name'),
-            'email'=> $request->input('email'),
-            'password'=> Hash::make($request->input('password'))
-        ]);
-
-    $securityRole = Role::where('name', 'security')->first();
     
-    $user->assignRole($securityRole);
+        // Create the user
+        $user = User::create([
+            'name' => $input['name'],
+            'email' => $input['email'],
+            'password' => $input['password']
+        ]);
+    
+        // Assign the 'security' role to the user
+        $securityRole = Role::where('name', 'security')->first();
+        $user->assignRole($securityRole);
+    
+        // Create the security officer and associate the user with it
+        $securityOfficer = $securityOfficer->create($input);
         $securityOfficer->user()->associate($user);
+        $securityOfficer->save();
+    
         return redirect()->route('empoylee.index')->with('alert-success', 'Security Officer has been created');
     }
     public function index()
@@ -87,6 +99,12 @@ class SecurityOfficerController extends Controller
         } else {
             unset($input['image']);
         }
+       $user= $securityOfficer->user;
+       $user->update([
+        'name' => $input['name'],
+        'email' => $input['email'],
+        'password' => $input['password']
+       ]);
         $securityOfficer->update($input);
         return redirect()->route('empoylee.index')->with('alert-success', 'Record has been updated successfully!');
     }

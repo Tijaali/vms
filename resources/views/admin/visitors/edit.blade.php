@@ -15,17 +15,17 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">First Name</label>
+                                            <label class="col-sm-3 col-form-label">Name</label>
                                             <div class="col-sm-9">
-                                                <input type="text" name="fname" placeholder="First Name"  class="form-control" value="{{old('fname',$visitor->fname)}}" />
+                                                <input type="text" name="name" placeholder="Name"  class="form-control" value="{{old('name',$visitor->name)}}" />
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Last Name</label>
+                                            <label class="col-sm-3 col-form-label">Email</label>
                                             <div class="col-sm-9">
-                                                <input type="text" name="lname" placeholder="Last Name" class="form-control" value="{{old('lname',$visitor->lname)}}"/>
+                                                <input type="email" name="email" placeholder="Email" class="form-control" value="{{old('email',$visitor->email)}}"/>
                                             </div>
                                         </div>
                                     </div>
@@ -54,9 +54,9 @@
                                       </div>
                                     <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Phone</label>
+                                            <label class="col-sm-3 col-form-label">Password</label>
                                             <div class="col-sm-9">
-                                                <input type="text" name="mobilenumber" placeholder="Mobile Number" class="form-control" maxlength="10" required="true" value="{{old('mobilenumber',$visitor->mobilenumber)}}" />
+                                                <input type="password" name="password" placeholder="Password" class="form-control" maxlength="10" required="true" value="{{old('password',$visitor->password)}}" />
                                             </div>
                                         </div>
                                     </div>
@@ -73,12 +73,11 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Address1 </label>
+                                            <label class="col-sm-3 col-form-label">Phone</label>
                                             <div class="col-sm-9">
-                                                <input type="text" name="address1" placeholder="Address" class="form-control" value="{{old('address1',$visitor->address1)}}" />
+                                                <input type="text" name="mobilenumber" placeholder="Mobile Number" class="form-control" maxlength="10" required="true" value="{{old('mobilenumber',$visitor->mobilenumber)}}" />
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                                 <div class="row">
@@ -87,6 +86,15 @@
                                             <label class="col-sm-3 col-form-label">Address2 </label>
                                             <div class="col-sm-9">
                                                 <input type="text" name="address2" placeholder="Address" class="form-control" value="{{old('address2',$visitor->address2)}}" />
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Address1 </label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="address1" placeholder="Address" class="form-control" value="{{old('address1',$visitor->address1)}}" />
                                             </div>
                                         </div>
 

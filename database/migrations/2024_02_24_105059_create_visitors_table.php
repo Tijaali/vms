@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('visitors', function (Blueprint $table) {
             $table->id();
-            $table->string('fname');
-            $table->string('lname');
+            $table->string('name');
+            $table->string('email');
+            $table->string('password');
             $table->string('gender');
             $table->string('mobilenumber');
             $table->string('cnic_number', 15)->unique();
@@ -30,6 +31,8 @@ return new class extends Migration
             $table->string('status')->nullable();
             $table->longText('purpose');
             $table->string('image');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

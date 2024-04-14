@@ -87,11 +87,11 @@
                                             <tr>
                                                 <th>No</th>
                                                 <th>image</th>
-                                                <th>First Name</th>
+                                                <th>Name</th>
                                                 <th>CNIC</th>
                                                 <th>Category</th>
-                                                <th>Depart</th>
-                                                <th>Visitee</th>
+                                                {{-- <th>Depart</th>
+                                                <th>Visitee</th> --}}
                                                 <th>Status</th>
                                                 <th>Approval</th>
                                                 <th>Actions</th>
@@ -131,19 +131,13 @@
                         }
                     },
                     {
-                        data: 'fname'
+                        data: 'name'
                     },
                     {
                         data: 'cnic_number'
                     },
                     {
                         data: 'category'
-                    },
-                    {
-                        data: 'depart'
-                    },
-                    {
-                        data: 'visitee'
                     },
                     
                     {

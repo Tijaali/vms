@@ -46,4 +46,8 @@ class User extends Authenticatable
     public function security(){
     return $this->hasOne(SecurityOfficer::class);
     }
+    public function visitor(){
+        return $this->hasOne(Visitor::class);
+        }
+
 }

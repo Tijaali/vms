@@ -1,4 +1,57 @@
 @extends('admin.common.layout')
+@section('page-css')
+    <style>
+        .datatable {
+            font-family: Arial, sans-serif;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .datatable thead {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .datatable th,
+        .datatable td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        .datatable tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .datatable .btn {
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .datatable .btn-primary {
+            background-color: #007bff;
+        }
+
+        .datatable .btn-secondary {
+            background-color: #6c757d;
+        }
+
+        .datatable .btn-success {
+            background-color: #28a745;
+        }
+
+        .datatable .btn-danger {
+            background-color: #dc3545;
+        }
+
+        .datatable img {
+            width: 50px;
+            height: auto;
+            border-radius: 50%;
+        }
+    </style>
+@endsection
 @section('content')
     <div class="content-wrapper">
         <div class="row">
@@ -14,7 +67,7 @@
                                             <tr>
                                                 <th>No</th>
                                                 <th>image</th>
-                                                <th>fname</th>
+                                                <th>Name</th>
                                                 <th>Email</th>
                                                 <th>Designation</th>
                                                 <th>Depart</th>
@@ -56,7 +109,7 @@
                         }
                     },
                     {
-                        data: 'fname'
+                        data: 'name'
                     },
                     {
                         data: 'email'
@@ -73,15 +126,15 @@
                         render: function(data) {
                             return `
                            <div class="d-flex">
-                            <button type="button" class="btn btn-outline-primary  p-3 m-2" onclick="alertConfirm('{{ route('empoylee.show', ['securityOfficer' => ':securityOfficer']) }}'.replace(/:securityOfficer/g, ${data}),'confirm','Are you sure you want to edit','warning','show','cancel')">
+                            <button type="button" class="btn btn-primary  p-3 m-2" onclick="alertConfirm('{{ route('empoylee.show', ['securityOfficer' => ':securityOfficer']) }}'.replace(/:securityOfficer/g, ${data}),'confirm','Are you sure you want to edit','warning','show','cancel')">
                           Show
 
                         </button>
-                            <button type="button" class="btn btn-outline-secondary p-3 m-2" onclick="alertConfirm('{{ route('employee.edit', ['securityOfficer' => ':securityOfficer']) }}'.replace(/:securityOfficer/g, ${data}),'confirm','Are you sure you want to edit','warning','edit','cancel')">
+                            <button type="button" class="btn btn-secondary p-3 m-2" onclick="alertConfirm('{{ route('employee.edit', ['securityOfficer' => ':securityOfficer']) }}'.replace(/:securityOfficer/g, ${data}),'confirm','Are you sure you want to edit','warning','edit','cancel')">
                           Edit
 
                         </button>
-                        <button type="button" class="btn btn-outline-success " onclick="alertConfirm('{{ route('empoylee.delete', ['securityOfficer' => ':securityOfficer']) }}'.replace(/:securityOfficer/g, ${data}),'confirm','Are you sure you want to delete','warning','delete','cancel')"">
+                        <button type="button" class="btn btn-success " onclick="alertConfirm('{{ route('empoylee.delete', ['securityOfficer' => ':securityOfficer']) }}'.replace(/:securityOfficer/g, ${data}),'confirm','Are you sure you want to delete','warning','delete','cancel')"">
                         Delete
                         </button>
                             </div>`;

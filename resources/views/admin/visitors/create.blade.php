@@ -26,16 +26,16 @@
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">First Name</label>
                                         <div class="col-sm-9">
-                                            <input type="text" name="fname" placeholder="First Name"
+                                            <input type="text" name="name" placeholder="Name"
                                                 class="form-control" />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label">Last Name</label>
+                                        <label class="col-sm-3 col-form-label">Email</label>
                                         <div class="col-sm-9">
-                                            <input type="text" name="lname" placeholder="Last Name"
+                                            <input type="email" name="email" placeholder="Last Name"
                                                 class="form-control" />
                                         </div>
                                     </div>
@@ -67,9 +67,9 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label">Phone</label>
+                                        <label class="col-sm-3 col-form-label">Password</label>
                                         <div class="col-sm-9">
-                                            <input type="text" name="mobilenumber" placeholder="Mobile Number"
+                                            <input type="password" name="password" placeholder="Password"
                                                 class="form-control" maxlength="10" required="true" />
                                         </div>
                                     </div>
@@ -88,13 +88,12 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label">Address1 </label>
+                                        <label class="col-sm-3 col-form-label">Phone</label>
                                         <div class="col-sm-9">
-                                            <input type="text" name="address1" placeholder="Address"
-                                                class="form-control" />
+                                            <input type="text" name="mobilenumber" placeholder="Mobile Number"
+                                                class="form-control" maxlength="10" required="true" />
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                             <div class="row">
@@ -103,6 +102,15 @@
                                         <label class="col-sm-3 col-form-label">Address2 </label>
                                         <div class="col-sm-9">
                                             <input type="text" name="address2" placeholder="Address"
+                                                class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">Address1 </label>
+                                        <div class="col-sm-9">
+                                            <input type="text" name="address1" placeholder="Address"
                                                 class="form-control" />
                                         </div>
                                     </div>
