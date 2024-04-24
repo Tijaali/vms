@@ -24,7 +24,7 @@
                                         <label class="col-sm-3 col-form-label">Role</label>
                                         <div class="col-sm-9">
                                             <input type="text" name="name" placeholder="Role"
-                                                class="form-control" / value="{{old('name',$role->name)}}">
+                                                class="form-control" value="{{old('name',$role->name)}}">
                                         </div>
                                     </div>
                                 </div>

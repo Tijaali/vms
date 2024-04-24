@@ -28,17 +28,9 @@
                         <div class="row m-3">
                             <div class="col-md-12">
                                 <div class="row">
-                                    <label class="col-sm-3 p-2">First Name</label>
+                                    <label class="col-sm-3 p-2">Name</label>
                                     <div class="col-sm-9 border p-2 mb-3 card-description">
-                                        {{ $securityOfficer->fname }}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="row">
-                                    <label class="col-sm-3 p-2">Last Name</label>
-                                    <div class="col-sm-9 border p-2 mb-3 card-description">
-                                        {{ $securityOfficer->lname }}
+                                        {{ $securityOfficer->name }}
                                     </div>
                                 </div>
                             </div>
@@ -168,10 +160,7 @@
                         <h5 class="my-3">{{$securityOfficer->fname}}</h5>
                         <p class="text-muted mb-1">{{$securityOfficer->designation}}</p>
                         <p class="text-muted mb-4">{{$securityOfficer->address1}}</p>
-                        <div class="d-flex justify-content-center mb-2">
-                            <button type="button" class="btn btn-primary">Allow</button>
-                            <button type="button" class="btn btn-outline-primary ms-1">Deny</button>
-                        </div>
+                       
                     </div>
                 </div>
             </div>

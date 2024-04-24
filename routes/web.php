@@ -3,6 +3,8 @@
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SecurityOfficerController;
 use App\Http\Controllers\VisitorController;
+use App\Mail\requestUpdate;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,9 +26,12 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::group(['middleware'=>'auth'],function () {
-    Route::get('/dashboard', function () {
+    Route::get('/admin', function () {
         return view('admin.index');
     })->name('dashboard');
+    Route::get('/security', function () {
+        return view('security.index');
+    })->name('security');
     Route::group(["prefix"=>'visitor'],function(){
         Route::get('/create',[VisitorController::class,'create'])->name('visitor.create');
         Route::post('/store',[VisitorController::class,'store'])->name('visitor.store');

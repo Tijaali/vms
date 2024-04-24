@@ -154,16 +154,6 @@ class VisitorController extends Controller
     }
 
 
-    // public function approve(Request $request, Visitor $visitor) {
-    //     $visitor->status='approved';
-    //     $visitor->save();
-    //     return redirect()->back();
-    // }
-    // public function reject(Request $request, Visitor $visitor) {
-    //     $visitor->status='rejected';
-    //     $visitor->save();
-    //     return redirect()->back();
-    // }
     public function createPdf()
 {
     $visitors = Visitor::all();

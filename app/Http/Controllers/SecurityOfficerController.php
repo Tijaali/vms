@@ -16,10 +16,11 @@ class SecurityOfficerController extends Controller
 {
         function __construct()
     {
-         $this->middleware('permission:employee-list|employee-create|employee-edit|employee-delete', ['only' => ['index','store']]);
+         $this->middleware('permission:employee-show|employee-list|employee-create|employee-edit|employee-delete', ['only' => ['index','store']]);
          $this->middleware('permission:employee-create', ['only' => ['create','store']]);
          $this->middleware('permission:employee-edit', ['only' => ['edit','update']]);
          $this->middleware('permission:employee-delete', ['only' => ['delete']]);
+         $this->middleware('permission:employee-show',['only'=>['show']]);
     }
     public function create()
     {
@@ -52,7 +53,7 @@ class SecurityOfficerController extends Controller
         ]);
     
         // Assign the 'security' role to the user
-        $securityRole = Role::where('name', 'security')->first();
+        $securityRole = Role::where('name', 'SecurityOfficer')->first();
         $user->assignRole($securityRole);
     
         // Create the security officer and associate the user with it
