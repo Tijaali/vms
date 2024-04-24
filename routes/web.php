@@ -26,12 +26,9 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::group(['middleware'=>'auth'],function () {
-    Route::get('/admin', function () {
+    Route::get('/dashboard', function () {
         return view('admin.index');
     })->name('dashboard');
-    Route::get('/security', function () {
-        return view('security.index');
-    })->name('security');
     Route::group(["prefix"=>'visitor'],function(){
         Route::get('/create',[VisitorController::class,'create'])->name('visitor.create');
         Route::post('/store',[VisitorController::class,'store'])->name('visitor.store');
