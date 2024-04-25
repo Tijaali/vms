@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class VisitorCategory extends Model
 {
+    protected $guarded=[];
     use HasFactory;
     public function visitor() {
         return $this->hasOne(Visitor::class);
