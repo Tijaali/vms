@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SecurityOfficerController;
@@ -48,7 +49,8 @@ Route::group(['middleware'=>'auth'],function () {
         Route::get('/{visitor}/delete',[VisitorController::class,'delete'])->name('visitor.delete');
         Route::get('/{visitor}/approve',[VisitorController::class,'approve'])->name('visitor.approve');
         Route::get('/{visitor}/reject',[VisitorController::class,'reject'])->name('visitor.reject');
-        Route::get('/createPdf',[VisitorController::class,'createPdf'])->name('visitor.createPdf');
+        Route::get('/{visitor}/createPdf',[VisitorController::class,'createPdf'])->name('visitor.createPdf');
+        Route::get('/export-visitor',[VisitorController::class,'exportVisitor'])->name('visitor.export');
     
     });
     Route::group(["prefix"=>'empoylee'],function () {
@@ -60,6 +62,8 @@ Route::group(['middleware'=>'auth'],function () {
         Route::get('/{securityOfficer}/edit',[SecurityOfficerController::class,'edit'])->name('employee.edit');
         Route::put('/{securityOfficer}/update',[SecurityOfficerController::class,'update'])->name('empoylee.update');
         Route::get('/{securityOfficer}/delete',[SecurityOfficerController::class,'delete'])->name('empoylee.delete');
+        Route::get('/export-securityOfficer',[SecurityOfficerController::class,'export'])->name('employee.export');
+
     });
     Route::group(["prefix"=>'role'],function () {
         Route::get('/create',[RoleController::class,'create'])->name('role.create');
@@ -94,6 +98,16 @@ Route::group(['middleware'=>'auth'],function () {
         Route::get('/{permission}/edit',[PermissionController::class,'edit'])->name('permission.edit');
         Route::put('/{permission}/update',[PermissionController::class,'update'])->name('permission.update');
         Route::get('/{permission}/delete',[PermissionController::class,'delete'])->name('permission.delete');
+    });
+    Route::group(["prefix"=>'event'],function () {
+        Route::get('/create',[EventController::class,'create'])->name('event.create');
+        Route::post('/store',[EventController::class,'store'])->name('event.store');
+        Route::get('/list',[EventController::class,'index'])->name('event.index');
+        Route::post('/ajax',[EventController::class,'ajax'])->name('event.ajax');
+        Route::get('/{event}/show',[EventController::class,'show'])->name('event.show');
+        Route::get('/{event}/edit',[EventController::class,'edit'])->name('event.edit');
+        Route::put('/{event}/update',[EventController::class,'update'])->name('event.update');
+        Route::get('/{event}/delete',[EventController::class,'delete'])->name('event.delete');
     });
 });
 

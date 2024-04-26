@@ -91,20 +91,6 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#permission" aria-expanded="false" aria-controls="permission">
-              <i class="icon-bar-graph menu-icon"></i>
-              <span class="menu-title">Permission</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="permission">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"><a class="nav-link" href="{{route('permission.create')}}">Create permission</a></li>
-                {{-- <li class="nav-item"><a class="nav-link" href="">Edit role </a></li> --}}
-                <li class="nav-item"><a class="nav-link" href="{{route('permission.index')}}">All permissions</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#event" aria-expanded="false" aria-controls="event">
               <i class="icon-bar-graph menu-icon"></i>
               <span class="menu-title">Upcoming Events</span>
@@ -114,7 +100,7 @@
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"><a class="nav-link" href="{{route('event.create')}}">Create event</a></li>
                 {{-- <li class="nav-item"><a class="nav-link" href="">Edit role </a></li> --}}
-                <li class="nav-item"><a class="nav-link" href="{{route('event.index')}}">All permissions</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{route('event.index')}}">All events</a></li>
               </ul>
             </div>
           </li>

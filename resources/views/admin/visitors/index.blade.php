@@ -60,8 +60,8 @@
                     <div class="card-body">
                         <p class="card-title">All visitors</p>
                         <div class="col-md-6 mb-4 mb-xl-0">
-                            <a href="{{ route('visitor.createPdf') }}" id="generateReportBtn"
-                                class="btn btn-sm btn-primary shadow-sm">
+                            <a id="generateReportBtn"
+                                class="btn btn-sm btn-primary shadow-sm" href="{{route('visitor.export')}}">
                                 <i class="mdi mdi-arrow-down-bold-hexagon-outline text-white"></i>
                                 Generate Report
                             </a>
@@ -173,6 +173,9 @@
                         </button>
                         <button type="button" class="btn btn-danger p-2 my-2" onclick="alertConfirm('{{ route('visitor.delete', ['visitor' => ':visitor']) }}'.replace(/:visitor/g, ${data}),'confirm','Are you sure you want to delete','warning','delete','cancel')"">
                           Delete
+                        </button>
+                        <button type="button" class="btn btn-danger p-2 my-2" onclick="alertConfirm('{{ route('visitor.createPdf', ['visitor' => ':visitor']) }}'.replace(/:visitor/g, ${data}),'confirm','Are you sure you want to delete','warning','delete','cancel')"">
+                          download pdf
                         </button>
                                 </div>`;
                         }

@@ -7,71 +7,115 @@
     <title>PDF</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <style>
-            @media print {
-                table {
-                    font-size: 10px; /* Adjust font size as needed */
-                }
-                .page-break {
+    <style>
+        @media print {
+            table {
+                font-size: 10px;
+                /* Adjust font size as needed */
+            }
+
+            .page-break {
                 page-break-before: always;
             }
-            }
-        </style>
+        }
+    </style>
 
 
-    </head>
+</head>
 
 <body>
-    <h1 class="text-center">All Visitors</h1>
-    @foreach ($visitors->chunk(10) as $chunk)
-    <table class="table">
-        <thead>
+    <div style="width: 600px; background-color:antiquewhite;margin:auto; text-align:center ;">
+        <h1 style="text-align: center; margin-bottom:10px">{{ $visitor->name }} Details</h1>
+        <img src="data:image/png+jpg;base64,<?php echo base64_encode(file_get_contents(base_path('public/storage/'.$visitor->image))); ?>" style="width: 200px; height:170px; border-radius:50px;">
+        <table style="width: 80%; margin:auto">
             <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Image</th>
-                <th scope="col">First Name</th>
-                <th scope="col">Last Name</th>
-                <th scope="col">Gender</th>
-                <th scope="col">Mobile</th>
-                <th scope="col">CNIC</th>
-                <th scope="col">Address1</th>
-                <th scope="col">Address2</th>
-                <th scope="col">Category</th>
-                <th scope="col">Depart</th>
-                <th scope="col">Visitee</th>
-                <th scope="col">From</th>
-                <th scope="col">To</th>
-                <th scope="col">Status</th>
-                <th scope="col">Approval</th>
-
+                <th> <label style="color:black; font-size:20px">Id</label></th>
+                <td>
+                    <p>{{ $visitor->id }}</p>
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            @foreach ($chunk as $visitor)
-                <tr>
-                    <td>{{ $visitor->id }}</td>
-                    <td><img src="/storage/{{ $visitor->image }}" alt=""></td>
-                    <td>{{ $visitor->fname }}</td>
-                    <td>{{ $visitor->lname }}</td>
-                    <td>{{ $visitor->gender}}</td>
-                    <td>{{ $visitor->mobilenumber}}</td>
-                    <td>{{ $visitor->cnic_number}}</td>
-                    <td>{{ $visitor->address1}}</td>
-                    <td>{{ $visitor->address2}}</td>
-                    <td>{{ $visitor->category->name}}</td>
-                    <td>{{ $visitor->depart->name}}</td>
-                    <td>{{ $visitor->visitee}}</td>
-                    <td>{{ $visitor->from}}</td>
-                    <td>{{ $visitor->to}}</td>
-                    <td>{{ $visitor->status}}</td>
-                    <td>{{ $visitor->purpose}}</td>
+            <tr>
+                <th><label style="color:black; font-size:20px">Name</label></th>
+                <td>
+                    <p>{{ $visitor->name }}</p>
+                </td>
+            </tr>
+            <tr>
+                <th><label style="color:black; font-size:20px">Gender</label></th>
+                <td>
+                    <p>{{ $visitor->gender }}</p>
+                </td>
+            </tr>
+            <tr>
+                <th><label style="color:black; font-size:20px">Mobile</label></th>
+                <td>
+                    <p>{{ $visitor->mobilenumber }}</p>
+                </td>
+            </tr>
+            <tr>
+                <th><label style="color:black; font-size:20px">CNIC</label></th>
+                <td>
+                    <p>{{ $visitor->cnic_number }}</p>
+                </td>
+            </tr>
+            <tr>
+                <th><label style="color:black; font-size:20px">Address1</label></th>
+                <td>
+                    <p>{{ $visitor->address1 }}</p>
+                </td>
+            </tr>
+            <tr>
+                <th><label style="color:black; font-size:20px">Address2</label></th>
+                <td>
+                    <p>{{ $visitor->address2 }}</p>
+                </td>
+            </tr>
+            <tr>
+                <th> <label style="color:black; font-size:20px">Category</label></th>
+                <td>
+                    <p>{{ $visitor->category->name }}</p>
+                </td>
+            </tr>
+            <tr>
+                <th><label style="color:black; font-size:20px">Depart</label></th>
+                <td>
+                    <p>{{ $visitor->depart->name }}</p>
+                </td>
+            </tr>
+            <tr>
+                <th><label style="color:black; font-size:20px">Visitee</label></th>
+                <td>
+                    <p>{{ $visitor->visitee }}</p>
+                </td>
+            </tr>
+            <tr>
+                <th> <label style="color:black; font-size:20px">From</label></th>
+                <td>
+                    <p>{{ $visitor->from }}</p>
+                </td>
+            </tr>
+            <tr>
+                <th> <label style="color:black; font-size:20px">To</label></th>
+                <td>
+                    <p>{{ $visitor->to }}</p>
+                </td>
+            </tr>
+            <tr>
+                <th><label style="color:black; font-size:20px">Status</label></th>
+                <td>
+                    <p>{{ $visitor->status }}</p>
+                </td>
+            </tr>
+            <tr>
+                <th><label style="color:black; font-size:20px">Approval</label></th>
+                <td>
+                    <p>{{ $visitor->purpose }}</p>
+                </td>
+            </tr>
 
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
-    <div class="page-break"></div>
-    @endforeach
+        </table>
+
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>

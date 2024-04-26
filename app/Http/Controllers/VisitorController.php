@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ExportVisitor;
 use App\Models\Visitor;
 use App\Rules\CnicFormat;
 use Barryvdh\DomPDF\Facade\Pdf ;
@@ -13,6 +14,7 @@ use Yajra\DataTables\Facades\DataTables;
 use App\Models\Notification;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Maatwebsite\Excel\Facades\Excel;
 use Spatie\Permission\Models\Role;
 
 class VisitorController extends Controller
@@ -154,10 +156,13 @@ class VisitorController extends Controller
     }
 
 
-    public function createPdf()
-{
-    $visitors = Visitor::all();
-    $pdf = Pdf::loadView('admin.visitors.pdf', compact('visitors'));
-    return $pdf->download('visitors.pdf'); // Download the generated PDF
-}
+    public function createPdf(Visitor $visitor)
+    {
+        $pdf = Pdf::loadView('admin.visitors.pdf', compact('visitor'));
+        return $pdf->download('visitors.pdf'); // Download the generated PDF
+    }
+    public function exportVisitor(Request $request){
+        
+        return Excel::download(new ExportVisitor, 'visitors.xlsx');
+    }
 }

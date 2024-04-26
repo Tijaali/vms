@@ -18,4 +18,7 @@ class Department extends Model
         return self::all();
     }
     protected $guarded =[];
+    public function event(){
+        return $this->hasOne(Event::class);
+    }
 }

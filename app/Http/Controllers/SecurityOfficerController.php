@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ExportSecurityOfficer;
 use App\Models\SecurityOfficer;
 use App\Models\User;
 use App\Models\Visitor;
@@ -9,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
 use Spatie\Permission\Models\Role;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -114,5 +116,7 @@ class SecurityOfficerController extends Controller
         $securityOfficer->delete();
         return redirect()->back();
     }
-
+    public function export(Request $request){
+        return Excel::download(new ExportSecurityOfficer, 'securityOfficers.xlsx');
+    }
 }
