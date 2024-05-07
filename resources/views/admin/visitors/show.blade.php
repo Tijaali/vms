@@ -154,13 +154,13 @@
                 <div class="card mb-4">
                     <div class="card-body text-center">
                         <img src="/storage/{{ $visitor->image }}" alt="avatar" class="rounded-circle img-fluid"
-                            style="width: 150px;">
+                            style="width: 150px;height:150px">
                         <h5 class="my-3">{{ $visitor->fname }}</h5>
                         <p class="text-muted mb-1">{{ $visitor->category->name }}</p>
                         <p class="text-muted mb-4">{{ $visitor->address1 }}</p>
                         <div class="d-flex justify-content-center mb-2">
-                            <button type="button" class="btn btn-primary">Allow</button>
-                            <button type="button" class="btn btn-outline-primary ms-1">Deny</button>
+                            <button type="button" class="btn btn-primary" onclick="alertConfirm('{{ route('visitor.approve', [$visitor->id]) }}','confirm','Are you sure you want to allow','warning','allow','cancel')">Allow</button>
+                            <button type="button" class="btn btn-outline-primary ms-1" onclick="alertConfirm('{{ route('visitor.reject', [$visitor-> id]) }}','confirm','Are you sure you want to reject','warning','reject','cancel')">Deny</button>
                         </div>
                     </div>
                 </div>

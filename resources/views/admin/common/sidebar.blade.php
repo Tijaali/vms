@@ -104,7 +104,7 @@
               </ul>
             </div>
           </li>
-          @else
+          @elseif (Auth::user()->hasRole('SecurityOfficer'))
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#manage_visitor" aria-expanded="false" aria-controls="manage_visitor">
               <i class="icon-columns menu-icon"></i>
@@ -146,7 +146,25 @@
               </ul>
             </div>
           </li>
-          
+          @else
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('visitor.create')}}">
+              <i class="icon-grid menu-icon"></i>
+              <span class="menu-title">Apply</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('dashboard')}}">
+              <i class="icon-grid menu-icon"></i>
+              <span class="menu-title">Applications</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('event.index')}}">
+              <i class="icon-grid menu-icon"></i>
+              <span class="menu-title">Upcoming Events</span>
+            </a>
+          </li>
           @endif
          
 

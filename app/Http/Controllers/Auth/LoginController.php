@@ -31,7 +31,7 @@ class LoginController extends Controller
             return '/dashboard';
         }
         else{
-            return '/user'; 
+            return route('user.dashboard'); 
         }
       }
 

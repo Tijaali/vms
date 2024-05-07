@@ -29,15 +29,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/user', function () {
-    return view('user-dashboard.index');
-})->name('user.dashboard')->middleware('role:visitor','auth');
+
 
 Route::group(['middleware'=>'auth'],function () {
     Route::get('/dashboard', function () {
         return view('admin.index');
     })->name('dashboard');
-  
     Route::group(["prefix"=>'visitor'],function(){
         Route::get('/create',[VisitorController::class,'create'])->name('visitor.create');
         Route::post('/store',[VisitorController::class,'store'])->name('visitor.store');

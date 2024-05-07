@@ -93,7 +93,7 @@
                                                 {{-- <th>Depart</th>
                                                 <th>Visitee</th> --}}
                                                 <th>Status</th>
-                                                <th>Approval</th>
+                                                <th>Entrance</th>
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>
@@ -127,7 +127,7 @@
                     {
                         data: 'image',
                         render: function(data) {
-                            return `<img src='/storage/${data}'>`;
+                            return `<img src='/storage/${data}' style='width:70px;height:70px'>`;
                         }
                     },
                     {
@@ -152,10 +152,10 @@
                             return `
                             <div class='d-flex'>
                                 <button type="button" class="btn btn-primary p-2 my-2" onclick="alertConfirm('{{ route('visitor.approve', ['visitor' => ':visitor']) }}'.replace(/:visitor/g, ${data}),'confirm','Are you sure you want to allow','warning','allow','cancel')">
-                          Allow
+                          Entry
                         </button>
                             <button type="button" class="btn btn-danger p-2 my-2" onclick="alertConfirm('{{ route('visitor.reject', ['visitor' => ':visitor']) }}'.replace(/:visitor/g, ${data}),'confirm','Are you sure you want to reject','warning','reject','cancel')">
-                          Reject
+                          Exit
                         </button>
                       </div>`;
                         }

@@ -33,8 +33,8 @@ class VisitorController extends Controller
         $request->validate(
             [
                 'cnic_number' =>'regex:/^[0-9]{5}-[0-9]{7}-[0-9]$/|unique:visitors,cnic_number',
-            ],
-
+                'mobilenumber' => 'required|digits:10',
+            ]
         );
         $input = $request->all();
         $input['password'] = Hash::make($input['password']);
@@ -162,7 +162,7 @@ class VisitorController extends Controller
         return $pdf->download('visitors.pdf'); // Download the generated PDF
     }
     public function exportVisitor(Request $request){
-        
+
         return Excel::download(new ExportVisitor, 'visitors.xlsx');
     }
 }

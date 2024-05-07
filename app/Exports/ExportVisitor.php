@@ -8,6 +8,7 @@ use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
 class ExportVisitor implements FromCollection , WithHeadings
+
 {
     /**
     * @return \Illuminate\Support\Collection
