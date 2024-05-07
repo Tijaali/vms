@@ -13,6 +13,7 @@ use Yajra\DataTables\Contracts\DataTable;
 use Yajra\DataTables\Facades\DataTables;
 use App\Models\Notification;
 use App\Models\User;
+// use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
 use Spatie\Permission\Models\Role;
@@ -49,23 +50,31 @@ class VisitorController extends Controller
 
             $input["image"] = "$filePath";
         }
-
-            // Create the user
-            $user = User::create([
+        if(auth()->user()->hasRole('visitor')){
+            $input['user_id'] = auth()->user()->id;
+            // Create the visitor and associate the user with it
+            $visitor = $visitor->create($input);
+            $visitor->user()->associate(auth()->user());
+            $visitor->save();
+        }
+           else{
+             // Create the user
+             $user = User::create([
                 'name' => $input['name'],
                 'email' => $input['email'],
                 'password' => $input['password']
             ]);
         
-            // Assign the 'security' role to the user
+            // Assign the 'visitor' role to the user
             $visitorRole = Role::where('name', 'visitor')->first();
             $user->assignRole($visitorRole);
             $input['user_id'] = $user->id;
-            // Create the security officer and associate the user with it
+            // Create the visitor and associate the user with it
             $visitor = $visitor->create($input);
             $visitor->user()->associate($user);
             $visitor->save();
-        return redirect()->route('visitor.index')->with('alert-success','Visitor has been added successfully');
+           }
+        return redirect()->back()->with('alert-success','Visitor has been added successfully');
     }
     public function index(){
         // $notifications = Notification::orderBy('created_at', 'desc')->take(10)->get();

@@ -27,7 +27,9 @@
                                         <label class="col-sm-3 col-form-label">First Name</label>
                                         <div class="col-sm-9">
                                             <input type="text" name="name" placeholder="Name"
-                                                class="form-control" />
+                                                class="form-control" @if (Auth::user()->hasRole('visitor'))
+                                                   value={{Auth::user()->name}} 
+                                                @endif />
                                         </div>
                                     </div>
                                 </div>
@@ -35,8 +37,10 @@
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Email</label>
                                         <div class="col-sm-9">
-                                            <input type="email" name="email" placeholder="Last Name"
-                                                class="form-control" />
+                                            <input type="email" name="email" placeholder="Email"
+                                                class="form-control" @if (Auth::user()->hasRole('visitor'))
+                                                value={{Auth::user()->email}} 
+                                             @endif />
                                         </div>
                                     </div>
                                 </div>
@@ -70,7 +74,7 @@
                                         <label class="col-sm-3 col-form-label">Password</label>
                                         <div class="col-sm-9">
                                             <input type="password" name="password" placeholder="Password"
-                                                class="form-control" maxlength="10" required="true" />
+                                                class="form-control" maxlength="10" required="true"/>
                                         </div>
                                     </div>
                                 </div>

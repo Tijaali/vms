@@ -26,14 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    public function redirectTo() {
-        if(Auth::user()->hasRole('SuperAdmin') || Auth::user()->hasRole('SecurityOfficer')){
-            return '/dashboard';
-        }
-        else{
-            return route('user.dashboard'); 
-        }
-      }
+   protected  $redirectTo= '/dashboard';
 
     /**
      * Create a new controller instance.

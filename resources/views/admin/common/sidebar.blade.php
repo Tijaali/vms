@@ -154,13 +154,13 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{route('dashboard')}}">
+            <a class="nav-link" href="{{route('user.application')}}">
               <i class="icon-grid menu-icon"></i>
               <span class="menu-title">Applications</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{route('event.index')}}">
+            <a class="nav-link" href="{{route('events')}}">
               <i class="icon-grid menu-icon"></i>
               <span class="menu-title">Upcoming Events</span>
             </a>

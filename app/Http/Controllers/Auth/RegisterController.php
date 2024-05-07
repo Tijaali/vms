@@ -30,12 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    public function redirectTo() {
-        if(Auth::user()->hasRole('visitor') ){
-            return route('user.dashboard');
-        }
-        
-    }
+    protected $redirectTo = '/dashboard';
 
     /**
      * Create a new controller instance.

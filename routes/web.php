@@ -5,6 +5,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SecurityOfficerController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\VisitorCategoryController;
 use App\Http\Controllers\VisitorController;
 use App\Mail\requestUpdate;
@@ -106,5 +107,7 @@ Route::group(['middleware'=>'auth'],function () {
         Route::put('/{event}/update',[EventController::class,'update'])->name('event.update');
         Route::get('/{event}/delete',[EventController::class,'delete'])->name('event.delete');
     });
+    Route::get('/applications',[UserController::class,'userApplications'])->name('user.application');
+    Route::get('/events',[UserController::class,'eventData'])->name('events');
 });
 
