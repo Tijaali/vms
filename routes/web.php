@@ -11,6 +11,7 @@ use App\Http\Controllers\VisitorController;
 use App\Mail\requestUpdate;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NotificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::post('/mark-notification-read/{id}',[App\Http\Controllers\NotificationController::class, 'markAsRead'])->name('markNotificationRead');
 
 Route::get('/', function () {
     return view('welcome');

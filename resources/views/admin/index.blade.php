@@ -5,7 +5,7 @@
             <div class="col-md-12 grid-margin">
                 <div class="row">
                     <div class="col-md-6 mb-4 mb-xl-0">
-                        <h3 class="font-weight-bold">Welcome {{Auth::user()->name}}</h3>
+                        <h3 class="font-weight-bold">Welcome {{ Auth::user()->name }}</h3>
                         <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span
                                 class="text-primary">3 unread alerts!</span></h6>
                     </div>
@@ -18,6 +18,17 @@
                 </div>
             </div>
         </div>
+        @foreach (DB::table('name_notifications')->where('notifiable_id', auth()->user()->id)->whereNull('read_at')->get() as $notification)
+            <div class="notification">
+                <p>{{ json_decode($notification->data)->message }}</p>
+                <p>{{ json_encode(json_decode($notification->data)->formData) }}</p>
+                <form method="POST" action="{{ route('markNotificationRead', $notification->id) }}">
+                    @csrf
+                    <button type="submit">Mark as Read</button>
+                </form>
+            </div>
+        @endforeach
+
         <div class="row">
             <div class="col-md-12 grid-margin transparent">
                 <div class="row">
