@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\PermissionController;
@@ -24,11 +25,7 @@ use App\Http\Controllers\NotificationController;
 |
 */
 
-Route::post('/mark-notification-read/{id}',[App\Http\Controllers\NotificationController::class, 'markAsRead'])->name('markNotificationRead');
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[Controller::class,'homePage']);
 
 Auth::routes();
 
