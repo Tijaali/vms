@@ -175,9 +175,14 @@
                                     <div class="col-md-6">
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label" >Photo</label>
-                                            <div class="input-group col-sm-9">
-                                                <input type="file" name="image" class="form-control file-upload-info" />
-                                                <img src="/storage/{{ $visitor->image }}" width="50px" height="45px">
+                                            <div class="input-group col-sm-9 row">
+                                                <div class="col-sm-8">
+                                                    <input type="file" name="image" class="form-control file-upload-info" />
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <img src="/storage/{{ $visitor->image }}" width="20px" height="20px"> 
+                                                </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
