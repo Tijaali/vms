@@ -18,7 +18,7 @@
                 </div>
             </div>
         </div>
-        @foreach (DB::table('name_notifications')->where('notifiable_id', auth()->user()->id)->whereNull('read_at')->get() as $notification)
+        {{-- @foreach (DB::table('name_notifications')->where('notifiable_id', auth()->user()->id)->whereNull('read_at')->get() as $notification)
             <div class="notification">
                 <p>{{ json_decode($notification->data)->message }}</p>
                 <p>{{ json_encode(json_decode($notification->data)->formData) }}</p>
@@ -27,7 +27,7 @@
                     <button type="submit">Mark as Read</button>
                 </form>
             </div>
-        @endforeach
+        @endforeach --}}
 
         <div class="row">
             <div class="col-md-12 grid-margin transparent">

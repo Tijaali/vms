@@ -5,16 +5,10 @@
             <div class="col-md-12 grid-margin">
                 <div class="row">
                     <div class="col-md-6 mb-4 mb-xl-0">
-                        <h3 class="font-weight-bold">Welcome {{ $visitor->fname }}</h3>
-                        <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span
-                                class="text-primary">3 unread alerts!</span></h6>
+                        <h3 class="font-weight-bold">{{ $visitor->name }}</h3>
+                        <h6 class="font-weight-normal mb-0">All systems are running smoothly! </h6>
                     </div>
-                    <div class="col-md-6 mb-4 mb-xl-0">
-                        <a id="generateReportBtn" class="btn btn-sm btn-primary shadow-sm">
-                            <i class="mdi mdi-arrow-down-bold-hexagon-outline text-white"></i>
-                            Generate Report
-                        </a>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -26,19 +20,12 @@
                             Personal info
                         </p>
                         <div class="row m-3">
+                            
                             <div class="col-md-12">
                                 <div class="row">
-                                    <label class="col-sm-3 p-2">First Name</label>
+                                    <label class="col-sm-3 p-2">Name</label>
                                     <div class="col-sm-9 border p-2 mb-3 card-description">
-                                        {{ $visitor->fname }}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="row">
-                                    <label class="col-sm-3 p-2">Last Name</label>
-                                    <div class="col-sm-9 border p-2 mb-3 card-description">
-                                        {{ $visitor->lname }}
+                                        {{ $visitor->name }}
                                     </div>
                                 </div>
                             </div>

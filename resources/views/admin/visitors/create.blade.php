@@ -28,8 +28,8 @@
                                         <div class="col-sm-9">
                                             <input type="text" name="name" placeholder="Name"
                                                 class="form-control" @if (Auth::user()->hasRole('visitor'))
-                                                   value={{Auth::user()->name}} 
-                                                @endif />
+                                                   value={{Auth::user()->name}} readonly
+                                                @endif  />
                                         </div>
                                     </div>
                                 </div>
@@ -38,8 +38,8 @@
                                         <label class="col-sm-3 col-form-label">Email</label>
                                         <div class="col-sm-9">
                                             <input type="email" name="email" placeholder="Email"
-                                                class="form-control" @if (Auth::user()->hasRole('visitor'))
-                                                value={{Auth::user()->email}} 
+                                                class="form-control" @if (Auth::user()->hasRole('visitor')) 
+                                                value={{Auth::user()->email}} readonly
                                              @endif />
                                         </div>
                                     </div>
@@ -52,7 +52,7 @@
                                         <div class="col-sm-4">
                                             <div class="form-check">
                                                 <label class="form-check-label">
-                                                    <input type="radio" class="form-check-input" name="gender"
+                                                    <input type="text" class="form-check-input" name="gender"
                                                         value="Male" checked>
                                                     Male
                                                 </label>
@@ -61,7 +61,7 @@
                                         <div class="col-sm-5">
                                             <div class="form-check">
                                                 <label class="form-check-label">
-                                                    <input type="radio" class="form-check-input" name="gender"
+                                                    <input type="text" class="form-check-input" name="gender"
                                                         value="Female">
                                                     Female
                                                 </label>

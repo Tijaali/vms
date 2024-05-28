@@ -3,24 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Exports\ExportVisitor;
+use App\Mail\ApplicationAccepted;
+use App\Mail\ApplicationRejected;
 use App\Models\Visitor;
-use App\Rules\CnicFormat;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Storage;
-use Yajra\DataTables\Contracts\DataTable;
 use Yajra\DataTables\Facades\DataTables;
-// use App\Models\Notification;
+use App\Models\Notification;
 use App\Models\User;
 // use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Maatwebsite\Excel\Facades\Excel;
 use Spatie\Permission\Models\Role;
-
-use App\Notifications\FormSubmittedNotification;
-use Illuminate\Support\Facades\Notification;
-
 class VisitorController extends Controller
 {
     function __construct()
@@ -61,6 +57,11 @@ class VisitorController extends Controller
             $visitor = $visitor->create($input);
             $visitor->user()->associate(auth()->user());
             $visitor->save();
+             // Add a notification for the visitor rejection
+        Notification::create([
+            'visitor_id' => $visitor->id,
+            'message' => "Visitor {$visitor->name} has applied." // Adjust according to your notification structure
+        ]);
         } else {
             // Create the user
             $user = User::create([
@@ -78,11 +79,6 @@ class VisitorController extends Controller
             $visitor->user()->associate($user);
             $visitor->save();
         }
-        
-        $admins = User::whereHas('roles', function($query) {
-        $query->where('name', 'admin');
-        })->get();
-        Notification::send($admins, new FormSubmittedNotification($request->all()));
         
         return redirect()->back()->with('alert-success', 'Visitor has been added successfully');
     }
@@ -108,6 +104,8 @@ class VisitorController extends Controller
     }
     public function edit(Request $request, Visitor $visitor)
     {
+        // $userMail = $visitor->email;
+        // // dd($userMail);
         return view('admin.visitors.edit', compact('visitor'));
     }
     public function update(Request $request, Visitor $visitor)
@@ -142,38 +140,37 @@ class VisitorController extends Controller
     {
         $visitor->status = 'approved';
         $visitor->save();
+        
 
-        // Add a notification for the visitor approval
-        Notification::create([
-            'visitor_id' => $visitor->id,
-            'message' => "Visitor {$visitor->name} has been approved." // Adjust according to your notification structure
-        ]);
+        // Logic to mark the application as accepted
+        // ...
 
-        // Check if the request expects a JSON response (AJAX call)
-        if ($request->expectsJson()) {
-            return response()->json(['message' => 'Visitor has been approved and notified.']);
-        }
+        // Send acceptance email
+        Mail::to($visitor->email)->send(new ApplicationAccepted($visitor));
 
-        return redirect()->back()->with('success', 'Visitor has been approved and notified.');
+        return redirect()->back()->with('success', 'Application accepted and email sent.');
+
+        // // Add a notification for the visitor approval
+        // Notification::create([
+        //     'visitor_id' => $visitor->id,
+        //     'message' => "Visitor {$visitor->name} has been approved." // Adjust according to your notification structure
+        // ]);
+
+        // // Check if the request expects a JSON response (AJAX call)
+        // if ($request->expectsJson()) {
+        //     return response()->json(['message' => 'Visitor has been approved and notified.']);
+        // }
+
+        // return redirect()->back()->with('success', 'Visitor has been approved and notified.');
     }
 
     public function reject(Request $request, Visitor $visitor)
     {
         $visitor->status = 'rejected';
         $visitor->save();
+        Mail::to($visitor->email)->send(new ApplicationRejected($visitor));
 
-        // Add a notification for the visitor rejection
-        Notification::create([
-            'visitor_id' => $visitor->id,
-            'message' => "Visitor {$visitor->name} has been rejected." // Adjust according to your notification structure
-        ]);
-
-        // Check if the request expects a JSON response (AJAX call)
-        if ($request->expectsJson()) {
-            return response()->json(['message' => 'Visitor has been rejected and notified.']);
-        }
-
-        return redirect()->back()->with('error', 'Visitor has been rejected and notified.');
+        return redirect()->back()->with('success', 'Application rejected and email sent.');
     }
 
 

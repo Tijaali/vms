@@ -1,400 +1,1039 @@
-@extends('client.common.layout')
-@section('content')
-    <div class="intro-section" id="home-section">
+<!DOCTYPE html>
+<html lang="en">
 
-        <div class="slide-1" style="background-image: url('client/images/bwp.jpg');" data-stellar-background-ratio="0.5">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Index - Arsha Bootstrap Template</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="{{ asset('assets/img/favicon.png') }}" rel="icon">
+    <link href="{{ asset('assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{{ asset('client/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('client/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ asset('client/assets/vendor/aos/aos.css') }}" rel="stylesheet">
+    <link href="{{ asset('client/assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('client/assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Main CSS File -->
+    <link href="{{ asset('client/assets/css/main.css') }}" rel="stylesheet">
+
+    <!-- =======================================================
+  * Template Name: Arsha
+  * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
+  * Updated: May 18 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="index-page">
+
+    <header id="header" class="header d-flex align-items-center fixed-top">
+        <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+            <a href="index.html" class="logo d-flex align-items-center me-auto">
+                <!-- Uncomment the line below if you also wish to use an image logo -->
+                <!-- <img src="{{ asset('client/assets/img/logo.png') }}" alt=""> -->
+                <h1 class="sitename">VMS</h1>
+            </a>
+
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="#hero" class="">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Events</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#team">Team</a></li>
+
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
+
+            <a class="btn-getstarted" href="#about">Get Started</a>
+
+        </div>
+    </header>
+
+    <main class="main">
+
+        <!-- Hero Section -->
+        <section id="hero" class="hero section">
+
             <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-12">
-                        <div class="row align-items-center">
-                            <div class="col-lg-6 mb-4">
-                                <h1 data-aos="fade-up" data-aos-delay="100">Welcome to IUB Visitor Management System</h1>
-                                <p class="mb-4" data-aos="fade-up" data-aos-delay="200">"Making Every Visit Seamless and
-                                    Secure"</p>
-                                <p data-aos="fade-up" data-aos-delay="300"><a href="#"
-                                        class="btn btn-primary py-3 px-5 btn-pill">Visit Now</a></p>
-
-                            </div>
-
-                            <div class="col-lg-5 ml-auto" data-aos="fade-up" data-aos-delay="500">
-                                <form action="" method="post" class="form-box">
-                                    <h3 class="h4 text-black mb-4">Sign Up</h3>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Email Addresss">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="Password">
-                                    </div>
-                                    <div class="form-group mb-4">
-                                        <input type="password" class="form-control" placeholder="Re-type Password">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="submit" class="btn btn-primary btn-pill" value="Sign up">
-                                    </div>
-                                </form>
-
-                            </div>
+                <div class="row gy-4">
+                    <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center"
+                        data-aos="zoom-out">
+                        <h1 class="">IUB Campus Gatekeeper</h1>
+                        <p class=""> Advanced Visitor Management System,efficiently manage campus visits with IUB
+                            Visitor Manager—streamlining entry, ensuring security, and enhancing operational efficiency.
+                        </p>
+                        <div class="d-flex">
+                            <a href="#about" class="btn-get-started">Get Started</a>
+                            <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ"
+                                class="glightbox btn-watch-video d-flex align-items-center"><i
+                                    class="bi bi-play-circle"></i><span>Watch Video</span></a>
                         </div>
+                    </div>
+                    <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
+                        <img src="{{ asset('client/assets/img/hero-img.png') }}" class="img-fluid animated"
+                            alt="">
+                    </div>
+                </div>
+            </div>
+
+        </section><!-- /Hero Section -->
+
+        <!-- Clients Section -->
+        <section id="clients" class="clients section">
+
+            <div class="container" data-aos="zoom-in">
+
+                <div class="swiper">
+                    <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              },
+              "breakpoints": {
+                "320": {
+                  "slidesPerView": 2,
+                  "spaceBetween": 40
+                },
+                "480": {
+                  "slidesPerView": 3,
+                  "spaceBetween": 60
+                },
+                "640": {
+                  "slidesPerView": 4,
+                  "spaceBetween": 80
+                },
+                "992": {
+                  "slidesPerView": 5,
+                  "spaceBetween": 120
+                },
+                "1200": {
+                  "slidesPerView": 6,
+                  "spaceBetween": 120
+                }
+              }
+            }
+          </script>
+                    <div class="swiper-wrapper align-items-center">
+                        <div class="swiper-slide"><img src="{{ asset('client/assets/img/clients/client-1.png') }}"
+                                class="img-fluid" alt=""></div>
+                        <div class="swiper-slide"><img src="{{ asset('client/assets/img/clients/client-2.png') }}"
+                                class="img-fluid" alt=""></div>
+                        <div class="swiper-slide"><img src="{{ asset('client/assets/img/clients/client-3.png') }}"
+                                class="img-fluid" alt=""></div>
+                        <div class="swiper-slide"><img src="{{ asset('client/assets/img/clients/client-4.png') }}"
+                                class="img-fluid" alt=""></div>
+                        <div class="swiper-slide"><img src="{{ asset('client/assets/img/clients/client-5.png') }}"
+                                class="img-fluid" alt=""></div>
+                        <div class="swiper-slide"><img src="{{ asset('client/assets/img/clients/client-6.png') }}"
+                                class="img-fluid" alt=""></div>
+                        <div class="swiper-slide"><img src="{{ asset('client/assets/img/clients/client-7.png') }}"
+                                class="img-fluid" alt=""></div>
+                        <div class="swiper-slide"><img src="{{ asset('client/assets/img/clients/client-8.png') }}"
+                                class="img-fluid" alt=""></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section><!-- /Clients Section -->
+
+        <!-- About Section -->
+        <section id="about" class="about section">
+
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2 class="">About Us</h2>
+            </div><!-- End Section Title -->
+
+            <div class="container">
+
+                <div class="row gy-4">
+
+                    <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
+                        <p>
+                            Empowering Campus Security and Visitor Management at The Islamia University of Bahawalpur
+                        </p>
+                        <ul>
+                            <li><i class="bi bi-check2-circle"></i> <span>Our Mission: To leverage technology for
+                                    enhancing campus security and streamlining visitor management processes.</span></li>
+                            <li><i class="bi bi-check2-circle"></i> <span>Our Vision: A safe, secure, and
+                                    technologically advanced campus where visitor management is integrated seamlessly
+                                    into daily operations.</span></li>
+                            <li><i class="bi bi-check2-circle"></i> <span>Our System: IUB Visitor Manager, developed by
+                                    IT professionals and security experts, features Streamlined Visitor Registration
+                                    ,Real-Time Tracking and User-Friendly Interface</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                        <img src="{{ asset('client/assets/img/features.jpg') }}" alt=""
+                            style="width: 600px; height:300px">
                     </div>
 
                 </div>
+
             </div>
-        </div>
-    </div>
 
+        </section><!-- /About Section -->
 
-    <div class="site-section courses-title" id="courses-section">
-        <div class="container">
-            <div class="row mb-5 justify-content-center">
-                <div class="col-lg-7 text-center" data-aos="fade-up" data-aos-delay="">
-                    <h2 class="section-title">Events</h2>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="site-section courses-entry-wrap" data-aos="fade-up" data-aos-delay="100">
-        <div class="container">
-            <div class="row">
+        <!-- Why Us Section -->
+        <section id="why-us" class="section why-us" data-builder="section">
 
-                <div class="owl-carousel col-12 nonloop-block-14">
-                    @foreach ($events as $event)
-                        <div class="course bg-white h-100 align-self-stretch">
-                            <figure class="m-0">
-                                <a href="course-single.html"><img src="storage/{{ $event->brochure }}" alt="Image"
-                                        class="img-fluid" style="height: 250px"></a>
-                            </figure>
-                            <div class="course-inner-text py-4 px-4">
-                                <span class="course-price">{{ $event->depart->name }}</span>
-                                <div class="meta"><span class="icon-clock-o"></span>{{ $event->timing }}</div>
-                                <h3><a href="#">{{ $event->title }}</a></h3>
-                                <p>{{ $event->venue }} </p>
-                            </div>
-                            <div class="d-flex  justify-content-center">
-                                <p data-aos="fade-up" data-aos-delay="300"><a href="#"
-                                        class="btn btn-primary py-3 px-5 btn-pill">Apply Now</a></p>
-                            </div>
+            <div class="container-fluid">
+
+                <div class="row gy-4">
+
+                    <div class="col-lg-7 d-flex flex-column justify-content-center order-2 order-lg-1">
+
+                        <div class="content px-xl-5" data-aos="fade-up" data-aos-delay="100">
+                            <h3 class=""><span class="">Enhancing Campus Security and Visitor Experience
+                                    with Advanced Technology </span></h3>
+                            <p class="">
+                                The IUB Visitor Management System is meticulously engineered to streamline the
+                                management of visitors while elevating campus security at The Islamia University of
+                                Bahawalpur. Our system ensures a seamless integration of technology and user-friendly
+                                features, making it a top choice for educational institutions aiming to enhance
+                                operational efficiency and visitor satisfaction.
+                            </p>
                         </div>
+
+                        <div class="faq-container px-xl-5" data-aos="fade-up" data-aos-delay="200">
+
+                            <div class="faq-item faq-active">
+
+                                <h3><span>01</span> How does the system handle visitor registration?</h3>
+                                <div class="faq-content">
+                                    <p>The IUB Visitor Manager simplifies the registration process by allowing visitors
+                                        to pre-register online or onsite through kiosks. The system captures essential
+                                        information, ensuring all security protocols are met before granting access.</p>
+                                </div>
+                                <i class="faq-toggle bi bi-chevron-right"></i>
+                            </div><!-- End Faq item-->
+
+                            <div class="faq-item">
+                                <h3><span>02</span> What technologies are utilized to ensure real-time tracking of
+                                    visitors?
+                                </h3>
+                                <div class="faq-content">
+                                    <p>Our system incorporates advanced real-time tracking technologies that monitor
+                                        visitor movements, manage access permissions, and maintain detailed logs of all
+                                        entries and exits. These capabilities ensure that the campus remains secure
+                                        while providing data-driven insights for continuous improvement.</p>
+                                </div>
+                                <i class="faq-toggle bi bi-chevron-right"></i>
+                            </div><!-- End Faq item-->
+
+                            <div class="faq-item">
+                                <h3><span>03</span> How does the Visitor Management System improve visitor experience?
+                                </h3>
+                                <div class="faq-content">
+                                    <p>The IUB Visitor Manager is designed with the user experience in mind. From easy
+                                        navigation on our digital platforms to quick processing at entry points, every
+                                        aspect of the visitor journey is optimized. Features such as instant
+                                        notifications, digital passes, and streamlined check-ins contribute to a
+                                        hassle-free visit.
+                                    </p>
+                                </div>
+                                <i class="faq-toggle bi bi-chevron-right"></i>
+                            </div><!-- End Faq item-->
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-5 order-1 order-lg-2 why-us-img">
+                        <img src="{{ asset('client/assets/img/why-us.png') }}" class="img-fluid" alt=""
+                            data-aos="zoom-in" data-aos-delay="100">
+                    </div>
+                </div>
+
+            </div>
+
+        </section><!-- /Why Us Section -->
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills section">
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="row">
+
+                    <div class="col-lg-6 d-flex align-items-center">
+                        <img src="{{ asset('client/assets/img/skills.png') }}" class="img-fluid" alt="">
+                    </div>
+
+                    <div class="col-lg-6 pt-4 pt-lg-0 content">
+
+                        <h3>Maximizing Efficiency and Security with the IUB Visitor Management System</h3>
+                        <p class="fst-italic">
+                            Our Visitor Management System at The Islamia University of Bahawalpur is crafted with the
+                            highest standards of technology to provide unmatched efficiency and enhanced security on
+                            campus. Here’s a breakdown of our system’s capabilities:
+                        </p>
+
+                        <div class="skills-content skills-animation">
+
+                            <div class="progress">
+                                <span class="skill"><span>System Integration</span> <i class="val">100%</i></span>
+                                <div class="progress-bar-wrap">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="100"
+                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div><!-- End Skills Item -->
+
+                            <div class="progress">
+                                <span class="skill"><span>User Interface Design</span> <i
+                                        class="val">90%</i></span>
+                                <div class="progress-bar-wrap">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="90"
+                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div><!-- End Skills Item -->
+
+                            <div class="progress">
+                                <span class="skill"><span>Functionality</span> <i class="val">75%</i></span>
+                                <div class="progress-bar-wrap">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="75"
+                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div><!-- End Skills Item -->
+
+                            <div class="progress">
+                                <span class="skill"><span>Digital Documentation Processing</span> <i
+                                        class="val">55%</i></span>
+                                <div class="progress-bar-wrap">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="55"
+                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div><!-- End Skills Item -->
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </section><!-- /Skills Section -->
+
+        <!-- Services Section -->
+        <section id="services" class="services section">
+
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Events</h2>
+                <p>Stay informed about upcoming events at The Islamia University of Bahawalpur with our Visitor
+                    Management System's real-time event listing feature.</p>
+            </div><!-- End Section Title -->
+
+            <div class="container">
+
+                <div class="row">
+
+                    @foreach ($events as $event)
+                        <div class="col-xl-4 col-md-6 mb-4 text-center" data-aos="fade-up" data-aos-delay="100">
+                            <div class="service-item position-relative">
+                                <div><img src="/storage/{{ $event->brochure }}" alt=""
+                                        style="width: 300px; height:200px"></div>
+                                <h4><a href="service-details.html" class="stretched-link">{{ $event->title }}</a>
+                                </h4>
+                                <p class="text-primary"><i class="fa-solid fa-clock me-2"></i><span
+                                        class="me-5">{{ $event->timing }}</span>
+                                    <i
+                                        class="fa-sharp fa-solid fa-building me-2"></i><span>{{ $event->depart->name }}</span>
+                                </p>
+                                <p><strong class="me-2">Venue:</strong>{{ $event->venue }}</p>
+                                <a href="" class="btn btn-primary rounded-pill mt-4">Apply</a>
+                            </div>
+                        </div><!-- End Service Item -->
                     @endforeach
 
+
                 </div>
 
+            </div>
 
+        </section><!-- /Services Section -->
+
+        <!-- Call To Action Section -->
+        <section id="call-to-action" class="call-to-action section">
+
+            <img src="{{ asset('client/assets/img/cta-bg.jpg') }}" alt="">
+
+            <div class="container">
+
+                <div class="row" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="col-xl-9 text-center text-xl-start">
+                        <h3>Get Started with the IUB Visitor Management System Today</h3>
+                        <p>Enhance your campus experience by leveraging the power of the IUB Visitor Management System.
+                            Register now to simplify visitor entries, ensure robust security, and stay updated with
+                            campus events. Don’t miss out on the convenience and safety that our system offers.</p>
+                    </div>
+                    <div class="col-xl-3 cta-btn-container text-center">
+                        <a class="cta-btn align-middle" href="#">Register Now</a>
+                    </div>
+                </div>
 
             </div>
-            <div class="row justify-content-center">
-                <div class="col-7 text-center">
-                    <button class="customPrevBtn btn btn-primary m-1">Prev</button>
-                    <button class="customNextBtn btn btn-primary m-1">Next</button>
+
+        </section><!-- /Call To Action Section -->
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="portfolio section">
+
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Visitor Categories</h2>
+                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+            </div><!-- End Section Title -->
+
+            <div class="container">
+
+                <div class="isotope-layout" data-default-filter="*" data-layout="masonry"
+                    data-sort="original-order">
+
+                    <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+                        <li data-filter="*" class="filter-active">All</li>
+                        <li data-filter=".filter-app">App</li>
+                        <li data-filter=".filter-product">Card</li>
+                        <li data-filter=".filter-branding">Web</li>
+                    </ul><!-- End Portfolio Filters -->
+
+                    <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+                            <img src="{{ asset('client/assets/img/masonry-portfolio/masonry-portfolio-1.jpg') }}"
+                                class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>App 1</h4>
+                                <p>Lorem ipsum, dolor sit</p>
+                                <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg')}}" title="App 1"
+                                    data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
+                                        class="bi bi-zoom-in"></i></a>
+                                <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                                        class="bi bi-link-45deg"></i></a>
+                            </div>
+                        </div><!-- End Portfolio Item -->
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+                            <img src="{{ asset('client/assets/img/masonry-portfolio/masonry-portfolio-2.jpg') }}"
+                                class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Product 1</h4>
+                                <p>Lorem ipsum, dolor sit</p>
+                                <a href="assets/img/masonry-portfolio/masonry-portfolio-2.jpg')}}" title="Product 1"
+                                    data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
+                                        class="bi bi-zoom-in"></i></a>
+                                <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                                        class="bi bi-link-45deg"></i></a>
+                            </div>
+                        </div><!-- End Portfolio Item -->
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+                            <img src="{{ asset('client/assets/img/masonry-portfolio/masonry-portfolio-3.jpg') }}"
+                                class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Branding 1</h4>
+                                <p>Lorem ipsum, dolor sit</p>
+                                <a href="assets/img/masonry-portfolio/masonry-portfolio-3.jpg" title="Branding 1"
+                                    data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i
+                                        class="bi bi-zoom-in"></i></a>
+                                <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                                        class="bi bi-link-45deg"></i></a>
+                            </div>
+                        </div><!-- End Portfolio Item -->
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+                            <img src="{{ asset('client/assets/img/masonry-portfolio/masonry-portfolio-4.jpg') }}"
+                                class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>App 2</h4>
+                                <p>Lorem ipsum, dolor sit</p>
+                                <a href="assets/img/masonry-portfolio/masonry-portfolio-4.jpg" title="App 2"
+                                    data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
+                                        class="bi bi-zoom-in"></i></a>
+                                <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                                        class="bi bi-link-45deg"></i></a>
+                            </div>
+                        </div><!-- End Portfolio Item -->
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+                            <img src="{{ asset('client/assets/img/masonry-portfolio/masonry-portfolio-5.jpg') }}"
+                                class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Product 2</h4>
+                                <p>Lorem ipsum, dolor sit</p>
+                                <a href="assets/img/masonry-portfolio/masonry-portfolio-5.jpg" title="Product 2"
+                                    data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
+                                        class="bi bi-zoom-in"></i></a>
+                                <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                                        class="bi bi-link-45deg"></i></a>
+                            </div>
+                        </div><!-- End Portfolio Item -->
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+                            <img src="{{ asset('client/assets/img/masonry-portfolio/masonry-portfolio-6.jpg') }}"
+                                class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Branding 2</h4>
+                                <p>Lorem ipsum, dolor sit</p>
+                                <a href="assets/img/masonry-portfolio/masonry-portfolio-6.jpg" title="Branding 2"
+                                    data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i
+                                        class="bi bi-zoom-in"></i></a>
+                                <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                                        class="bi bi-link-45deg"></i></a>
+                            </div>
+                        </div><!-- End Portfolio Item -->
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+                            <img src="{{ asset('client/assets/img/masonry-portfolio/masonry-portfolio-7.jpg') }}"
+                                class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>App 3</h4>
+                                <p>Lorem ipsum, dolor sit</p>
+                                <a href="assets/img/masonry-portfolio/masonry-portfolio-7.jpg" title="App 3"
+                                    data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
+                                        class="bi bi-zoom-in"></i></a>
+                                <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                                        class="bi bi-link-45deg"></i></a>
+                            </div>
+                        </div><!-- End Portfolio Item -->
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+                            <img src="{{ asset('client/assets/img/masonry-portfolio/masonry-portfolio-8.jpg') }}"
+                                class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Product 3</h4>
+                                <p>Lorem ipsum, dolor sit</p>
+                                <a href="assets/img/masonry-portfolio/masonry-portfolio-8.jpg" title="Product 3"
+                                    data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
+                                        class="bi bi-zoom-in"></i></a>
+                                <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                                        class="bi bi-link-45deg"></i></a>
+                            </div>
+                        </div><!-- End Portfolio Item -->
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+                            <img src="{{ asset('client/assets/img/masonry-portfolio/masonry-portfolio-9.jpg') }}"
+                                class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Branding 3</h4>
+                                <p>Lorem ipsum, dolor sit</p>
+                                <a href="assets/img/masonry-portfolio/masonry-portfolio-9.jpg" title="Branding 2"
+                                    data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i
+                                        class="bi bi-zoom-in"></i></a>
+                                <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                                        class="bi bi-link-45deg"></i></a>
+                            </div>
+                        </div><!-- End Portfolio Item -->
+
+                    </div><!-- End Portfolio Container -->
+
+                </div>
+
+            </div>
+
+        </section><!-- /Portfolio Section -->
+
+        <!-- Team Section -->
+        <section id="team" class="team section">
+
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Our Sercurity members</h2>
+                <p>Meet our dedicated security team, expertly trained professionals equipped with advanced technology to
+                    ensure a safe and secure campus environment at The Islamia University of Bahawalpur.</p>
+            </div><!-- End Section Title -->
+
+            <div class="container">
+
+                <div class="row">
+                    @foreach ($employees as $employee)
+                        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                            <div class="team-member d-flex align-items-start">
+                                <div class="pic"><img src="/storage/{{$employee->image}}"
+                                        class="img-fluid" alt=""></div>
+                                <div class="member-info">
+                                    <h4>{{$employee->name}}</h4>
+                                    <span>Security Officer</span>
+                                    <p>{{$employee->email}}</p>
+                                    <div class="social">
+                                        <a href=""><i class="bi bi-twitter-x"></i></a>
+                                        <a href=""><i class="bi bi-facebook"></i></a>
+                                        <a href=""><i class="bi bi-instagram"></i></a>
+                                        <a href=""> <i class="bi bi-linkedin"></i> </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- End Team Member -->
+                    @endforeach
+
+
+
+
+                </div>
+
+            </div>
+
+        </section><!-- /Team Section -->
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials section">
+
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Testimonials</h2>
+                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+            </div><!-- End Section Title -->
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="swiper">
+                    <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              }
+            }
+          </script>
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <img src="{{ asset('client/assets/img/testimonials/testimonials-1.jpg') }}"
+                                    class="testimonial-img" alt="">
+                                <h3>Saul Goodman</h3>
+                                <h4>Ceo &amp; Founder</h4>
+                                <div class="stars">
+                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star-fill"></i>
+                                </div>
+                                <p>
+                                    <i class="bi bi-quote quote-icon-left"></i>
+                                    <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum
+                                        suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et.
+                                        Maecen aliquam, risus at semper.</span>
+                                    <i class="bi bi-quote quote-icon-right"></i>
+                                </p>
+                            </div>
+                        </div><!-- End testimonial item -->
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <img src="{{ asset('client/assets/img/testimonials/testimonials-2.jpg') }}"
+                                    class="testimonial-img" alt="">
+                                <h3>Sara Wilsson</h3>
+                                <h4>Designer</h4>
+                                <div class="stars">
+                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star-fill"></i>
+                                </div>
+                                <p>
+                                    <i class="bi bi-quote quote-icon-left"></i>
+                                    <span>Export tempor illum tamen malis malis eram quae irure esse labore quem cillum
+                                        quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat
+                                        irure amet legam anim culpa.</span>
+                                    <i class="bi bi-quote quote-icon-right"></i>
+                                </p>
+                            </div>
+                        </div><!-- End testimonial item -->
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <img src="{{ asset('client/assets/img/testimonials/testimonials-3.jpg') }}"
+                                    class="testimonial-img" alt="">
+                                <h3>Jena Karlis</h3>
+                                <h4>Store Owner</h4>
+                                <div class="stars">
+                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star-fill"></i>
+                                </div>
+                                <p>
+                                    <i class="bi bi-quote quote-icon-left"></i>
+                                    <span>Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla
+                                        quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore
+                                        quis sint minim.</span>
+                                    <i class="bi bi-quote quote-icon-right"></i>
+                                </p>
+                            </div>
+                        </div><!-- End testimonial item -->
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <img src="{{ asset('client/assets/img/testimonials/testimonials-4.jpg') }}"
+                                    class="testimonial-img" alt="">
+                                <h3>Matt Brandon</h3>
+                                <h4>Freelancer</h4>
+                                <div class="stars">
+                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star-fill"></i>
+                                </div>
+                                <p>
+                                    <i class="bi bi-quote quote-icon-left"></i>
+                                    <span>Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim
+                                        fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore
+                                        quem dolore labore illum veniam.</span>
+                                    <i class="bi bi-quote quote-icon-right"></i>
+                                </p>
+                            </div>
+                        </div><!-- End testimonial item -->
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <img src="{{ asset('client/assets/img/testimonials/testimonials-5.jpg') }}"
+                                    class="testimonial-img" alt="">
+                                <h3>John Larson</h3>
+                                <h4>Entrepreneur</h4>
+                                <div class="stars">
+                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star-fill"></i>
+                                </div>
+                                <p>
+                                    <i class="bi bi-quote quote-icon-left"></i>
+                                    <span>Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor
+                                        noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam
+                                        esse veniam culpa fore nisi cillum quid.</span>
+                                    <i class="bi bi-quote quote-icon-right"></i>
+                                </p>
+                            </div>
+                        </div><!-- End testimonial item -->
+
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+
+            </div>
+
+        </section><!-- /Testimonials Section -->
+
+        <!-- Faq 2 Section -->
+        <section id="faq-2" class="faq-2 section">
+
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Frequently Asked Questions</h2>
+                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
+                    consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
+                    fugiat sit in iste officiis commodi quidem hic quas.</p>
+            </div><!-- End Section Title -->
+
+            <div class="container">
+
+                <div class="row justify-content-center">
+
+                    <div class="col-lg-10">
+
+                        <div class="faq-container">
+
+                            <div class="faq-item faq-active" data-aos="fade-up" data-aos-delay="200">
+                                <i class="faq-icon bi bi-question-circle"></i>
+                                <h3>Non consectetur a erat nam at lectus urna duis?</h3>
+                                <div class="faq-content">
+                                    <p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus
+                                        laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor
+                                        rhoncus dolor purus non.</p>
+                                </div>
+                                <i class="faq-toggle bi bi-chevron-right"></i>
+                            </div><!-- End Faq item-->
+
+                            <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                                <i class="faq-icon bi bi-question-circle"></i>
+                                <h3>Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?</h3>
+                                <div class="faq-content">
+                                    <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id
+                                        interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus
+                                        scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim.
+                                        Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
+                                </div>
+                                <i class="faq-toggle bi bi-chevron-right"></i>
+                            </div><!-- End Faq item-->
+
+                            <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                                <i class="faq-icon bi bi-question-circle"></i>
+                                <h3>Dolor sit amet consectetur adipiscing elit pellentesque?</h3>
+                                <div class="faq-content">
+                                    <p>Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci.
+                                        Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl
+                                        suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis
+                                        convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
+                                    </p>
+                                </div>
+                                <i class="faq-toggle bi bi-chevron-right"></i>
+                            </div><!-- End Faq item-->
+
+                            <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+                                <i class="faq-icon bi bi-question-circle"></i>
+                                <h3>Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</h3>
+                                <div class="faq-content">
+                                    <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id
+                                        interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus
+                                        scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim.
+                                        Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
+                                </div>
+                                <i class="faq-toggle bi bi-chevron-right"></i>
+                            </div><!-- End Faq item-->
+
+                            <div class="faq-item" data-aos="fade-up" data-aos-delay="600">
+                                <i class="faq-icon bi bi-question-circle"></i>
+                                <h3>Tempus quam pellentesque nec nam aliquam sem et tortor consequat?</h3>
+                                <div class="faq-content">
+                                    <p>Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse
+                                        in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl
+                                        suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
+                                    </p>
+                                </div>
+                                <i class="faq-toggle bi bi-chevron-right"></i>
+                            </div><!-- End Faq item-->
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section><!-- /Faq 2 Section -->
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact section">
+
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Contact</h2>
+                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+            </div><!-- End Section Title -->
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="row gy-4">
+
+                    <div class="col-lg-5">
+
+                        <div class="info-wrap">
+                            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
+                                <i class="bi bi-geo-alt flex-shrink-0"></i>
+                                <div>
+                                    <h3>Address</h3>
+                                    <p>A108 Adam Street, New York, NY 535022</p>
+                                </div>
+                            </div><!-- End Info Item -->
+
+                            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+                                <i class="bi bi-telephone flex-shrink-0"></i>
+                                <div>
+                                    <h3>Call Us</h3>
+                                    <p>+1 5589 55488 55</p>
+                                </div>
+                            </div><!-- End Info Item -->
+
+                            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+                                <i class="bi bi-envelope flex-shrink-0"></i>
+                                <div>
+                                    <h3>Email Us</h3>
+                                    <p>info@example.com</p>
+                                </div>
+                            </div><!-- End Info Item -->
+
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus"
+                                frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen=""
+                                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7">
+                        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up"
+                            data-aos-delay="200">
+                            <div class="row gy-4">
+
+                                <div class="col-md-6">
+                                    <label for="name-field" class="pb-2">Your Name</label>
+                                    <input type="text" name="name" id="name-field" class="form-control"
+                                        required="">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="email-field" class="pb-2">Your Email</label>
+                                    <input type="email" class="form-control" name="email" id="email-field"
+                                        required="">
+                                </div>
+
+                                <div class="col-md-12">
+                                    <label for="subject-field" class="pb-2">Subject</label>
+                                    <input type="text" class="form-control" name="subject" id="subject-field"
+                                        required="">
+                                </div>
+
+                                <div class="col-md-12">
+                                    <label for="message-field" class="pb-2">Message</label>
+                                    <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
+                                </div>
+
+                                <div class="col-md-12 text-center">
+                                    <div class="loading">Loading</div>
+                                    <div class="error-message"></div>
+                                    <div class="sent-message">Your message has been sent. Thank you!</div>
+
+                                    <button type="submit">Send Message</button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div><!-- End Contact Form -->
+
+                </div>
+
+            </div>
+
+        </section><!-- /Contact Section -->
+
+    </main>
+
+    <footer id="footer" class="footer">
+
+        <div class="footer-newsletter">
+            <div class="container">
+                <div class="row justify-content-center text-center">
+                    <div class="col-lg-6">
+                        <h4>Join Our Newsletter</h4>
+                        <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
+                        <form action="forms/newsletter.php" method="post" class="php-email-form">
+                            <div class="newsletter-form"><input type="email" name="email"><input type="submit"
+                                    value="Subscribe"></div>
+                            <div class="loading">Loading</div>
+                            <div class="error-message"></div>
+                            <div class="sent-message">Your subscription request has been sent. Thank you!</div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
+        <div class="container footer-top">
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6 footer-about">
+                    <a href="index.html" class="d-flex align-items-center">
+                        <span class="sitename">Arsha</span>
+                    </a>
+                    <div class="footer-contact pt-3">
+                        <p>A108 Adam Street</p>
+                        <p>New York, NY 535022</p>
+                        <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
+                        <p><strong>Email:</strong> <span>info@example.com</span></p>
+                    </div>
+                </div>
 
-    <div class="site-section" id="programs-section">
-        <div class="container">
-            <div class="row mb-5 justify-content-center">
-                <div class="col-lg-7 text-center" data-aos="fade-up" data-aos-delay="">
-                    <h2 class="section-title">Key Features</h2>
-                    <p>Unlock a world of efficiency and security with our state-of-the-art Visitor Management System,
-                        designed to transform how visits are handled on your campus. Experience unparalleled ease and
-                        control with features crafted for today's educational environment.</p>
-                </div>
-            </div>
-            <div class="row mb-5 align-items-center">
-                <div class="col-lg-7 mb-5" data-aos="fade-up" data-aos-delay="100">
-                    <img src="{{ asset('client/images/features.jpg') }}" alt="Image" class="img-fluid"
-                        style="height: 550px">
-                </div>
-                <div class="col-lg-4 ml-auto" data-aos="fade-up" data-aos-delay="200">
-                    <h2 class="text-black mb-4">Excellence in Visitor Management</h2>
+                <div class="col-lg-2 col-md-3 footer-links">
+                    <h4>Useful Links</h4>
                     <ul>
-                        <li><strong>Efficient Registration:</strong> "Quick, hassle-free registration online or via on-site
-                            kiosks."</li>
-                        <li><strong>Real-Time Updates:</strong> "Instant alerts keep hosts and security informed of visitor
-                            movements."</li>
-                        <li><strong>Comprehensive Reporting:</strong> "Access in-depth reports for enhanced visitor flow
-                            analysis and campus safety."</li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
                     </ul>
-                    <div class="d-flex align-items-center custom-icon-wrap mb-3">
-                        <span class="custom-icon-inner mr-3 text-center"><span
-                                class="fas fa-chart-bar text-white"></span></span>
-                        <div>
-                            <h3 class="m-0">Over 30,000 Visitors Managed Annually</h3>
-                        </div>
-                    </div>
-
-                    <div class="d-flex align-items-center custom-icon-wrap mb-3">
-                        <span class="custom-icon-inner mr-3 text-center"><i
-                                class="fa-solid fa-chart-simple text-white"></i></span>
-                        <div>
-                            <h3 class="m-0">99.9% System Uptime</h3>
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center custom-icon-wrap">
-                        <span class="custom-icon-inner mr-3"><span class="icon icon-university"></span></span>
-                        <div>
-                            <h3 class="m-0">Deployed in 5 Major Campus Locations</h3>
-                        </div>
-                    </div>
-
                 </div>
-            </div>
 
-            <div class="row mb-5 align-items-center">
-                <div class="col-lg-7 mb-5 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="100">
-                    <img src="{{ asset('client/images/undraw_teaching.svg') }}" alt="Image" class="img-fluid">
-                </div>
-                <div class="col-lg-4 mr-auto order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-                    <h2 class="text-black mb-4">Pioneering Visitor Management</h2>
-                    <p class="mb-4">Reinventing Campus Visits with Innovation and Insight at IUB Visitor Management
-                        System. Ensuring not just safety, but also a welcoming atmosphere for all campus visitors.</p>
+                <div class="col-lg-2 col-md-3 footer-links">
+                    <h4>Our Services</h4>
                     <ul>
-                        <li><strong>Enhancing Community Safety </strong></li>
-                        <li><strong>Driving
-                                Technological Adoption in Education </strong></li>
-                        <li><strong>Facilitating Educational Events</strong> </li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#">Web Design</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#">Web Development</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#">Product Management</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#">Marketing</a></li>
                     </ul>
-
                 </div>
-            </div>
 
-            <div class="row mb-5 align-items-center">
-                <div class="col-lg-7 mb-5" data-aos="fade-up" data-aos-delay="100">
-                    <img src="{{ asset('client/images/undraw_teacher.svg') }}" alt="Image" class="img-fluid">
-                </div>
-                <div class="col-lg-4 ml-auto" data-aos="fade-up" data-aos-delay="200">
-                    <h2 class="text-black mb-4">Education is life</h2>
-                    <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem maxime nam porro
-                        possimus fugiat quo molestiae illo.</p>
-
-                    <div class="d-flex align-items-center custom-icon-wrap mb-3">
-                        <span class="custom-icon-inner mr-3"><span class="icon icon-graduation-cap"></span></span>
-                        <div>
-                            <h3 class="m-0">22,931 Yearly Graduates</h3>
-                        </div>
-                    </div>
-
-                    <div class="d-flex align-items-center custom-icon-wrap">
-                        <span class="custom-icon-inner mr-3"><span class="icon icon-university"></span></span>
-                        <div>
-                            <h3 class="m-0">150 Universities Worldwide</h3>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="site-section" id="teachers-section">
-        <div class="container">
-
-            <div class="row mb-5 justify-content-center">
-                <div class="col-lg-7 mb-5 text-center" data-aos="fade-up" data-aos-delay="">
-                    <h2 class="section-title">Our Teachers</h2>
-                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam repellat aut
-                        neque! Doloribus sunt non aut reiciendis, vel recusandae obcaecati hic dicta repudiandae in
-                        quas quibusdam ullam, illum sed veniam!</p>
-                </div>
-            </div>
-
-            <div class="row">
-
-                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="teacher text-center">
-                        <img src="{{ asset('client/images/person_1.jpg') }}" alt="Image"
-                            class="img-fluid w-50 rounded-circle mx-auto mb-4">
-                        <div class="py-2">
-                            <h3 class="text-black">Benjamin Stone</h3>
-                            <p class="position">Physics Teacher</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro eius suscipit
-                                delectus enim iusto tempora, adipisci at provident.</p>
-                        </div>
+                <div class="col-lg-4 col-md-12">
+                    <h4>Follow Us</h4>
+                    <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
+                    <div class="social-links d-flex">
+                        <a href=""><i class="bi bi-twitter-x"></i></a>
+                        <a href=""><i class="bi bi-facebook"></i></a>
+                        <a href=""><i class="bi bi-instagram"></i></a>
+                        <a href=""><i class="bi bi-linkedin"></i></a>
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="teacher text-center">
-                        <img src="{{ asset('client/images/person_2.jpg') }}" alt="Image"
-                            class="img-fluid w-50 rounded-circle mx-auto mb-4">
-                        <div class="py-2">
-                            <h3 class="text-black">Katleen Stone</h3>
-                            <p class="position">Physics Teacher</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro eius suscipit
-                                delectus enim iusto tempora, adipisci at provident.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="teacher text-center">
-                        <img src="{{ asset('client/images/person_3.jpg') }}" alt="Image"
-                            class="img-fluid w-50 rounded-circle mx-auto mb-4">
-                        <div class="py-2">
-                            <h3 class="text-black">Sadie White</h3>
-                            <p class="position">Physics Teacher</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro eius suscipit
-                                delectus enim iusto tempora, adipisci at provident.</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
-    </div>
 
-    <div class="site-section bg-image overlay" style="background-image: url('client/images/hero_1.jpg');">
-        <div class="container">
-            <div class="row justify-content-center align-items-center">
-                <div class="col-md-8 text-center testimony">
-                    <img src="{{ asset('client/images/person_4.jpg') }}" alt="Image"
-                        class="img-fluid w-25 mb-4 rounded-circle">
-                    <h3 class="mb-4">Jerome Jensen</h3>
-                    <blockquote>
-                        <p>&ldquo; Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum rem soluta sit
-                            eius necessitatibus voluptate excepturi beatae ad eveniet sapiente impedit quae modi quo
-                            provident odit molestias! Rem reprehenderit assumenda &rdquo;</p>
-                    </blockquote>
-                </div>
+        <div class="container copyright text-center mt-4">
+            <p>© <span>Copyright</span> <strong class="px-1 sitename">Arsha</strong> <span>All Rights Reserved</span>
+            </p>
+            <div class="credits">
+                <!-- All the links in the footer should remain intact. -->
+                <!-- You can delete the links only if you've purchased the pro version. -->
+                <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
             </div>
         </div>
-    </div>
 
-    <div class="site-section pb-0">
+    </footer>
 
-        <div class="future-blobs">
-            <div class="blob_2">
-                <img src="{{ asset('client/images/blob_2.svg') }}" alt="Image">
-            </div>
-            <div class="blob_1">
-                <img src="{{ asset('client/images/blob_1.svg') }}" alt="Image">
-            </div>
-        </div>
-        <div class="container">
-            <div class="row mb-5 justify-content-center" data-aos="fade-up" data-aos-delay="">
-                <div class="col-lg-7 text-center">
-                    <h2 class="section-title">Why Choose Us</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 ml-auto align-self-start" data-aos="fade-up" data-aos-delay="100">
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
 
-                    <div class="p-4 rounded bg-white why-choose-us-box">
+    <!-- Preloader -->
+    <div id="preloader"></div>
 
-                        <div class="d-flex align-items-center custom-icon-wrap custom-icon-light mb-3">
-                            <div class="mr-3"><span class="custom-icon-inner"><span
-                                        class="icon icon-graduation-cap"></span></span></div>
-                            <div>
-                                <h3 class="m-0">22,931 Yearly Graduates</h3>
-                            </div>
-                        </div>
+    <!-- Vendor JS Files -->
+    <script src="{{ asset('client/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('client/assets/vendor/php-email-form/validate.js') }}"></script>
+    <script src="{{ asset('client/assets/vendor/aos/aos.js') }}"></script>
+    <script src="{{ asset('client/assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+    <script src="{{ asset('client/assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+    <script src="{{ asset('client/assets/vendor/waypoints/noframework.waypoints.js') }}"></script>
+    <script src="{{ asset('client/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
+    <script src="{{ asset('client/assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
 
-                        <div class="d-flex align-items-center custom-icon-wrap custom-icon-light mb-3">
-                            <div class="mr-3"><span class="custom-icon-inner"><span
-                                        class="icon icon-university"></span></span></div>
-                            <div>
-                                <h3 class="m-0">150 Universities Worldwide</h3>
-                            </div>
-                        </div>
+    <!-- Main JS File -->
+    <script src="{{ asset('client/assets/js/main.js') }}"></script>
 
-                        <div class="d-flex align-items-center custom-icon-wrap custom-icon-light mb-3">
-                            <div class="mr-3"><span class="custom-icon-inner"><span
-                                        class="icon icon-graduation-cap"></span></span></div>
-                            <div>
-                                <h3 class="m-0">Top Professionals in The World</h3>
-                            </div>
-                        </div>
+</body>
 
-                        <div class="d-flex align-items-center custom-icon-wrap custom-icon-light mb-3">
-                            <div class="mr-3"><span class="custom-icon-inner"><span
-                                        class="icon icon-university"></span></span></div>
-                            <div>
-                                <h3 class="m-0">Expand Your Knowledge</h3>
-                            </div>
-                        </div>
-
-                        <div class="d-flex align-items-center custom-icon-wrap custom-icon-light mb-3">
-                            <div class="mr-3"><span class="custom-icon-inner"><span
-                                        class="icon icon-graduation-cap"></span></span></div>
-                            <div>
-                                <h3 class="m-0">Best Online Teaching Assistant Courses</h3>
-                            </div>
-                        </div>
-
-                        <div class="d-flex align-items-center custom-icon-wrap custom-icon-light">
-                            <div class="mr-3"><span class="custom-icon-inner"><span
-                                        class="icon icon-university"></span></span></div>
-                            <div>
-                                <h3 class="m-0">Best Teachers</h3>
-                            </div>
-                        </div>
-
-                    </div>
-
-
-                </div>
-                <div class="col-lg-7 align-self-end" data-aos="fade-left" data-aos-delay="200">
-                    <img src="{{ asset('client/images/person_transparent.png') }}" alt="Image" class="img-fluid">
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-
-    <div class="site-section bg-light" id="contact-section">
-        <div class="container">
-
-            <div class="row justify-content-center">
-                <div class="col-md-7">
-
-
-
-                    <h2 class="section-title mb-3">Message Us</h2>
-                    <p class="mb-5">Natus totam voluptatibus animi aspernatur ducimus quas obcaecati mollitia
-                        quibusdam temporibus culpa dolore molestias blanditiis consequuntur sunt nisi.</p>
-
-                    <form method="post" data-aos="fade">
-                        <div class="form-group row">
-                            <div class="col-md-6 mb-3 mb-lg-0">
-                                <input type="text" class="form-control" placeholder="First name">
-                            </div>
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" placeholder="Last name">
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-12">
-                                <input type="text" class="form-control" placeholder="Subject">
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-12">
-                                <input type="email" class="form-control" placeholder="Email">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-md-12">
-                                <textarea class="form-control" id="" cols="30" rows="10" placeholder="Write your message here."></textarea>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6">
-
-                                <input type="submit" class="btn btn-primary py-3 px-5 btn-block btn-pill"
-                                    value="Send Message">
-                            </div>
-                        </div>
-
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-@endsection
+</html>

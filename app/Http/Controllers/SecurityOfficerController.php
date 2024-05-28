@@ -103,11 +103,8 @@ class SecurityOfficerController extends Controller
             unset($input['image']);
         }
        $user= $securityOfficer->user;
-       $user->update([
-        'name' => $input['name'],
-        'email' => $input['email'],
-        'password' => $input['password']
-       ]);
+      
+       $user->update($input);
         $securityOfficer->update($input);
         return redirect()->route('empoylee.index')->with('alert-success', 'Record has been updated successfully!');
     }

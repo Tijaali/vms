@@ -174,7 +174,7 @@
                         <button type="button" class="btn btn-danger p-2 my-2" onclick="alertConfirm('{{ route('visitor.delete', ['visitor' => ':visitor']) }}'.replace(/:visitor/g, ${data}),'confirm','Are you sure you want to delete','warning','delete','cancel')"">
                           Delete
                         </button>
-                        <button type="button" class="btn btn-danger p-2 my-2" onclick="alertConfirm('{{ route('visitor.createPdf', ['visitor' => ':visitor']) }}'.replace(/:visitor/g, ${data}),'confirm','Are you sure you want to delete','warning','delete','cancel')"">
+                        <button type="button" class="btn btn-danger p-2 my-2" onclick="alertConfirm('{{ route('visitor.createPdf', ['visitor' => ':visitor']) }}'.replace(/:visitor/g, ${data}),'confirm','Are you sure you want to download','warning','download','cancel')"">
                           download pdf
                         </button>
                                 </div>`;
