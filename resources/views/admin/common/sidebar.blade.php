@@ -116,6 +116,20 @@
               </ul>
           </div>
       </li>
+      <!-- Testimonial -->
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#testimonial" aria-controls="event">
+            <i class="icon-bar-graph menu-icon"></i>
+            <span class="menu-title">Testimonial</span>
+            <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="testimonial">
+            <ul class="nav flex-column sub-menu">
+                <li class="nav-item"><a class="nav-link" href="{{ route('testimonial.create') }}">Create event</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{route('testimonial.index')}}">All events</a></li>
+            </ul>
+        </div>
+    </li>
       
       @elseif (Auth::user()->hasRole('SecurityOfficer'))
       <!-- Manage Visitor (Security Officer) -->

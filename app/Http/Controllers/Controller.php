@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use App\Models\SecurityOfficer;
+use App\Models\Testimonial;
 use App\Models\Visitor;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -18,7 +19,8 @@ class Controller extends BaseController
     public function homePage() {
         $events = Event::get();
         $employees = SecurityOfficer::get();
-        // dd($employees);
-        return view('client.index',compact('events','employees'));
+        $testmonials = Testimonial::get();
+        // dd($testmonials);
+        return view('client.index',compact('events','employees','testmonials'));
     }
 }

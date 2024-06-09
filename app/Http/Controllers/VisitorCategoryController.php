@@ -11,9 +11,9 @@ class VisitorCategoryController extends Controller
         return view('admin.categories.create');  
     }
     public function store(Request $request,VisitorCategory $visitorCategory){
-        $request->validate([
-            'name'=>'required|unique:visitor_catgories,name,except,id',
-        ]);
+        // $request->validate([
+        //     'name'=>'required|unique:visitor_catgories,name,except,id',
+        // ]);
         $visitorCategory->create($request->except('_token'));
         return redirect()->back();
         
@@ -28,9 +28,9 @@ class VisitorCategoryController extends Controller
         return view('admin.categories.edit',compact('visitorCategory'));
     }
     public function update(Request $request, VisitorCategory $visitorCategory){
-        $request->validate([
-            'name'=>'required|unique:visitor_catgories,name,except,id',
-        ]);
+        // $request->validate([
+        //     'name'=>'required|unique:visitor_catgories,name,except,id',
+        // ]);
         $visitorCategory->update($request->except('_token'));
         return redirect()->route('visitorCategory.index');
 

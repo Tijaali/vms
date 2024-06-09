@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $departs =[
             'bscs',
-            'ENglish',
+            'English',
         ];
         foreach($departs as $depart){
             Department::create(['name' => $depart]);

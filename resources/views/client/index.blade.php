@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Index - Arsha Bootstrap Template</title>
+    <title>IUB| Visitor Management System</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -30,14 +30,26 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Main CSS File -->
     <link href="{{ asset('client/assets/css/main.css') }}" rel="stylesheet">
+    <style>
+        .call-to-action {
+            position: relative;
+            width: 100%;
+            height: 30dvw;
+            overflow: hidden;
+        }
 
-    <!-- =======================================================
-  * Template Name: Arsha
-  * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
-  * Updated: May 18 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+        .call-to-action video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            /* Keep the video in the background */
+        }
+    </style>
+
 </head>
 
 <body class="index-page">
@@ -84,14 +96,13 @@
                         </p>
                         <div class="d-flex">
                             <a href="#about" class="btn-get-started">Get Started</a>
-                            <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ"
+                            <a href="https://www.youtube.com/watch?v=kmksyoJn4i4"
                                 class="glightbox btn-watch-video d-flex align-items-center"><i
                                     class="bi bi-play-circle"></i><span>Watch Video</span></a>
                         </div>
                     </div>
                     <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
-                        <img src="{{ asset('client/assets/img/hero-img.png') }}" class="img-fluid animated"
-                            alt="">
+                        <img src="{{ asset('client/assets/img/bwp.jpg') }}" class="img-fluid animated" alt="">
                     </div>
                 </div>
             </div>
@@ -142,21 +153,21 @@
             }
           </script>
                     <div class="swiper-wrapper align-items-center">
-                        <div class="swiper-slide"><img src="{{ asset('client/assets/img/clients/client-1.png') }}"
+                        <div class="swiper-slide"><img src="{{ asset('client/assets/img/abbasia.webp') }}"
                                 class="img-fluid" alt=""></div>
-                        <div class="swiper-slide"><img src="{{ asset('client/assets/img/clients/client-2.png') }}"
+                        <div class="swiper-slide"><img src="{{ asset('client/assets/img/bagdad.webp') }}"
                                 class="img-fluid" alt=""></div>
-                        <div class="swiper-slide"><img src="{{ asset('client/assets/img/clients/client-3.png') }}"
+                        <div class="swiper-slide"><img src="{{ asset('client/assets/img/bhn.webp') }}"
                                 class="img-fluid" alt=""></div>
-                        <div class="swiper-slide"><img src="{{ asset('client/assets/img/clients/client-4.png') }}"
+                        <div class="swiper-slide"><img src="{{ asset('client/assets/img/khawaja.webp') }}"
                                 class="img-fluid" alt=""></div>
-                        <div class="swiper-slide"><img src="{{ asset('client/assets/img/clients/client-5.png') }}"
+                        <div class="swiper-slide"><img src="{{ asset('client/assets/img/ryk.webp') }}"
                                 class="img-fluid" alt=""></div>
-                        <div class="swiper-slide"><img src="{{ asset('client/assets/img/clients/client-6.png') }}"
+                        <div class="swiper-slide"><img src="{{ asset('client/assets/img/sports.webp') }}"
                                 class="img-fluid" alt=""></div>
-                        <div class="swiper-slide"><img src="{{ asset('client/assets/img/clients/client-7.png') }}"
+                        <div class="swiper-slide"><img src="{{ asset('client/assets/img/reseach.webp') }}"
                                 class="img-fluid" alt=""></div>
-                        <div class="swiper-slide"><img src="{{ asset('client/assets/img/clients/client-8.png') }}"
+                        <div class="swiper-slide"><img src="{{ asset('client/assets/img/cs.webp') }}"
                                 class="img-fluid" alt=""></div>
                     </div>
                 </div>
@@ -271,7 +282,7 @@
                     </div>
 
                     <div class="col-lg-5 order-1 order-lg-2 why-us-img">
-                        <img src="{{ asset('client/assets/img/why-us.png') }}" class="img-fluid" alt=""
+                        <img src="{{ asset('client/assets/img/campuses.jpg') }}" class="img-fluid" alt=""
                             data-aos="zoom-in" data-aos-delay="100">
                     </div>
                 </div>
@@ -387,7 +398,10 @@
         <!-- Call To Action Section -->
         <section id="call-to-action" class="call-to-action section">
 
-            <img src="{{ asset('client/assets/img/cta-bg.jpg') }}" alt="">
+            <video autoplay muted loop>
+                <source src="{{ asset('client/assets/img/main.mp4') }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
 
             <div class="container">
 
@@ -412,7 +426,7 @@
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
-                <h2>Visitor Categories</h2>
+                <h2>Campuses</h2>
                 <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
             </div><!-- End Section Title -->
 
@@ -421,23 +435,23 @@
                 <div class="isotope-layout" data-default-filter="*" data-layout="masonry"
                     data-sort="original-order">
 
-                    <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+                    {{-- <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
                         <li data-filter="*" class="filter-active">All</li>
                         <li data-filter=".filter-app">App</li>
                         <li data-filter=".filter-product">Card</li>
                         <li data-filter=".filter-branding">Web</li>
-                    </ul><!-- End Portfolio Filters -->
+                    </ul><!-- End Portfolio Filters --> --}}
 
                     <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
 
                         <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                            <img src="{{ asset('client/assets/img/masonry-portfolio/masonry-portfolio-1.jpg') }}"
-                                class="img-fluid" alt="">
+                            <img src="{{ asset('client/assets/img/abbasia.png') }}" class="img-fluid" alt=""
+                                style="height: 250px">
                             <div class="portfolio-info">
-                                <h4>App 1</h4>
-                                <p>Lorem ipsum, dolor sit</p>
-                                <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg')}}" title="App 1"
-                                    data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
+                                <h4>Abbasia Campus</h4>
+                                <p>Historic educational site in central Bahawalpur.</p>
+                                <a href="{{ asset('client/assets/img/abbasia.png') }}" title="Abbasia Campus"
+                                    data-gallery="portfolio-gallery-app" class="glightbox preview-link "><i
                                         class="bi bi-zoom-in"></i></a>
                                 <a href="portfolio-details.html" title="More Details" class="details-link"><i
                                         class="bi bi-link-45deg"></i></a>
@@ -445,26 +459,25 @@
                         </div><!-- End Portfolio Item -->
 
                         <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-                            <img src="{{ asset('client/assets/img/masonry-portfolio/masonry-portfolio-2.jpg') }}"
-                                class="img-fluid" alt="">
+                            <img src="{{ asset('client/assets/img/features.jpg') }}" class="img-fluid"
+                                alt="">
                             <div class="portfolio-info">
-                                <h4>Product 1</h4>
-                                <p>Lorem ipsum, dolor sit</p>
-                                <a href="assets/img/masonry-portfolio/masonry-portfolio-2.jpg')}}" title="Product 1"
-                                    data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
-                                        class="bi bi-zoom-in"></i></a>
+                                <h4>Baghdad-ul-Jadeed Campus</h4>
+                                <p>Main campus with extensive facilities on Hasilpur Road.</p>
+                                <a href="{{ asset('client/assets/img/features.jpg') }}"
+                                    title="Baghdad-ul-Jadeed Campus" data-gallery="portfolio-gallery-product"
+                                    class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                                 <a href="portfolio-details.html" title="More Details" class="details-link"><i
                                         class="bi bi-link-45deg"></i></a>
                             </div>
                         </div><!-- End Portfolio Item -->
 
                         <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-                            <img src="{{ asset('client/assets/img/masonry-portfolio/masonry-portfolio-3.jpg') }}"
-                                class="img-fluid" alt="">
+                            <img src="{{ asset('client/assets/img/bwn.jpg') }}" class="img-fluid" alt="">
                             <div class="portfolio-info">
-                                <h4>Branding 1</h4>
-                                <p>Lorem ipsum, dolor sit</p>
-                                <a href="assets/img/masonry-portfolio/masonry-portfolio-3.jpg" title="Branding 1"
+                                <h4>Bahawalnagar Campus</h4>
+                                <p>Serves the eastern Bahawalpur Division, emphasizing agriculture.</p>
+                                <a href="{{ asset('client/assets/img/bwn.jpg') }}" title="Bahawalnagar Campus"
                                     data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i
                                         class="bi bi-zoom-in"></i></a>
                                 <a href="portfolio-details.html" title="More Details" class="details-link"><i
@@ -473,12 +486,12 @@
                         </div><!-- End Portfolio Item -->
 
                         <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                            <img src="{{ asset('client/assets/img/masonry-portfolio/masonry-portfolio-4.jpg') }}"
-                                class="img-fluid" alt="">
+                            <img src="{{ asset('client/assets/img/khawaja.jpg') }}" class="img-fluid" alt=""
+                                style="height: 250px">
                             <div class="portfolio-info">
-                                <h4>App 2</h4>
-                                <p>Lorem ipsum, dolor sit</p>
-                                <a href="assets/img/masonry-portfolio/masonry-portfolio-4.jpg" title="App 2"
+                                <h4>Khawaja Fareed Campus</h4>
+                                <p>Focuses on engineering and technology.</p>
+                                <a href="{{ asset('client/assets/img/khawaja.jpg') }}" title="Khawaja Fareed Campus"
                                     data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
                                         class="bi bi-zoom-in"></i></a>
                                 <a href="portfolio-details.html" title="More Details" class="details-link"><i
@@ -487,12 +500,12 @@
                         </div><!-- End Portfolio Item -->
 
                         <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-                            <img src="{{ asset('client/assets/img/masonry-portfolio/masonry-portfolio-5.jpg') }}"
-                                class="img-fluid" alt="">
+                            <img src="{{ asset('client/assets/img/railway.jpg') }}" class="img-fluid"
+                                alt="">
                             <div class="portfolio-info">
-                                <h4>Product 2</h4>
-                                <p>Lorem ipsum, dolor sit</p>
-                                <a href="assets/img/masonry-portfolio/masonry-portfolio-5.jpg" title="Product 2"
+                                <h4>Rahim Yar Khan Campus</h4>
+                                <p>Caters to the western region with a variety of disciplines.</p>
+                                <a href="{{ asset('client/assets/img/railway.jpg') }}" title="Rahim Yar Khan Campus"
                                     data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
                                         class="bi bi-zoom-in"></i></a>
                                 <a href="portfolio-details.html" title="More Details" class="details-link"><i
@@ -500,61 +513,7 @@
                             </div>
                         </div><!-- End Portfolio Item -->
 
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-                            <img src="{{ asset('client/assets/img/masonry-portfolio/masonry-portfolio-6.jpg') }}"
-                                class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                                <h4>Branding 2</h4>
-                                <p>Lorem ipsum, dolor sit</p>
-                                <a href="assets/img/masonry-portfolio/masonry-portfolio-6.jpg" title="Branding 2"
-                                    data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i
-                                        class="bi bi-zoom-in"></i></a>
-                                <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                                        class="bi bi-link-45deg"></i></a>
-                            </div>
-                        </div><!-- End Portfolio Item -->
 
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                            <img src="{{ asset('client/assets/img/masonry-portfolio/masonry-portfolio-7.jpg') }}"
-                                class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                                <h4>App 3</h4>
-                                <p>Lorem ipsum, dolor sit</p>
-                                <a href="assets/img/masonry-portfolio/masonry-portfolio-7.jpg" title="App 3"
-                                    data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
-                                        class="bi bi-zoom-in"></i></a>
-                                <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                                        class="bi bi-link-45deg"></i></a>
-                            </div>
-                        </div><!-- End Portfolio Item -->
-
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-                            <img src="{{ asset('client/assets/img/masonry-portfolio/masonry-portfolio-8.jpg') }}"
-                                class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                                <h4>Product 3</h4>
-                                <p>Lorem ipsum, dolor sit</p>
-                                <a href="assets/img/masonry-portfolio/masonry-portfolio-8.jpg" title="Product 3"
-                                    data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
-                                        class="bi bi-zoom-in"></i></a>
-                                <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                                        class="bi bi-link-45deg"></i></a>
-                            </div>
-                        </div><!-- End Portfolio Item -->
-
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-                            <img src="{{ asset('client/assets/img/masonry-portfolio/masonry-portfolio-9.jpg') }}"
-                                class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                                <h4>Branding 3</h4>
-                                <p>Lorem ipsum, dolor sit</p>
-                                <a href="assets/img/masonry-portfolio/masonry-portfolio-9.jpg" title="Branding 2"
-                                    data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i
-                                        class="bi bi-zoom-in"></i></a>
-                                <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                                        class="bi bi-link-45deg"></i></a>
-                            </div>
-                        </div><!-- End Portfolio Item -->
 
                     </div><!-- End Portfolio Container -->
 
@@ -580,12 +539,12 @@
                     @foreach ($employees as $employee)
                         <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
                             <div class="team-member d-flex align-items-start">
-                                <div class="pic"><img src="/storage/{{$employee->image}}"
-                                        class="img-fluid" alt=""></div>
+                                <div class="pic"><img src="/storage/{{ $employee->image }}" class="img-fluid"
+                                        alt="" style="width:200px;height:150px"></div>
                                 <div class="member-info">
-                                    <h4>{{$employee->name}}</h4>
+                                    <h4>{{ $employee->name }}</h4>
                                     <span>Security Officer</span>
-                                    <p>{{$employee->email}}</p>
+                                    <p>{{ $employee->email }}</p>
                                     <div class="social">
                                         <a href=""><i class="bi bi-twitter-x"></i></a>
                                         <a href=""><i class="bi bi-facebook"></i></a>
@@ -612,7 +571,8 @@
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
                 <h2>Testimonials</h2>
-                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+                <p>Read how our IUB Visitor Management System is transforming campus safety and efficiency, straight
+                    from our users.</p>
             </div><!-- End Section Title -->
 
             <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -634,111 +594,27 @@
             }
           </script>
                     <div class="swiper-wrapper">
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-item">
-                                <img src="{{ asset('client/assets/img/testimonials/testimonials-1.jpg') }}"
-                                    class="testimonial-img" alt="">
-                                <h3>Saul Goodman</h3>
-                                <h4>Ceo &amp; Founder</h4>
-                                <div class="stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i>
+                        @foreach ($testmonials as $testmonial)
+                            <div class="swiper-slide">
+                                <div class="testimonial-item">
+                                    <img src="storage/{{ $testmonial->image }}" class="testimonial-img"
+                                        alt="" style="width: 300px; height:300px">
+                                    <h3>{{ $testmonial->name }}</h3>
+                                    <h4>{{ $testmonial->designation }}</h4>
+                                    <div class="stars">
+                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                            class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                            class="bi bi-star-fill"></i>
+                                    </div>
+                                    <p>
+                                        <i class="bi bi-quote quote-icon-left"></i>
+                                        <span>{{ $testmonial->desc }}</span>
+                                        <i class="bi bi-quote quote-icon-right"></i>
+                                    </p>
                                 </div>
-                                <p>
-                                    <i class="bi bi-quote quote-icon-left"></i>
-                                    <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum
-                                        suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et.
-                                        Maecen aliquam, risus at semper.</span>
-                                    <i class="bi bi-quote quote-icon-right"></i>
-                                </p>
                             </div>
-                        </div><!-- End testimonial item -->
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-item">
-                                <img src="{{ asset('client/assets/img/testimonials/testimonials-2.jpg') }}"
-                                    class="testimonial-img" alt="">
-                                <h3>Sara Wilsson</h3>
-                                <h4>Designer</h4>
-                                <div class="stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i>
-                                </div>
-                                <p>
-                                    <i class="bi bi-quote quote-icon-left"></i>
-                                    <span>Export tempor illum tamen malis malis eram quae irure esse labore quem cillum
-                                        quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat
-                                        irure amet legam anim culpa.</span>
-                                    <i class="bi bi-quote quote-icon-right"></i>
-                                </p>
-                            </div>
-                        </div><!-- End testimonial item -->
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-item">
-                                <img src="{{ asset('client/assets/img/testimonials/testimonials-3.jpg') }}"
-                                    class="testimonial-img" alt="">
-                                <h3>Jena Karlis</h3>
-                                <h4>Store Owner</h4>
-                                <div class="stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i>
-                                </div>
-                                <p>
-                                    <i class="bi bi-quote quote-icon-left"></i>
-                                    <span>Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla
-                                        quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore
-                                        quis sint minim.</span>
-                                    <i class="bi bi-quote quote-icon-right"></i>
-                                </p>
-                            </div>
-                        </div><!-- End testimonial item -->
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-item">
-                                <img src="{{ asset('client/assets/img/testimonials/testimonials-4.jpg') }}"
-                                    class="testimonial-img" alt="">
-                                <h3>Matt Brandon</h3>
-                                <h4>Freelancer</h4>
-                                <div class="stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i>
-                                </div>
-                                <p>
-                                    <i class="bi bi-quote quote-icon-left"></i>
-                                    <span>Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim
-                                        fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore
-                                        quem dolore labore illum veniam.</span>
-                                    <i class="bi bi-quote quote-icon-right"></i>
-                                </p>
-                            </div>
-                        </div><!-- End testimonial item -->
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-item">
-                                <img src="{{ asset('client/assets/img/testimonials/testimonials-5.jpg') }}"
-                                    class="testimonial-img" alt="">
-                                <h3>John Larson</h3>
-                                <h4>Entrepreneur</h4>
-                                <div class="stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i>
-                                </div>
-                                <p>
-                                    <i class="bi bi-quote quote-icon-left"></i>
-                                    <span>Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor
-                                        noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam
-                                        esse veniam culpa fore nisi cillum quid.</span>
-                                    <i class="bi bi-quote quote-icon-right"></i>
-                                </p>
-                            </div>
-                        </div><!-- End testimonial item -->
+                        @endforeach
+                        <!-- End testimonial item -->
 
                     </div>
                     <div class="swiper-pagination"></div>
@@ -754,9 +630,7 @@
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
                 <h2>Frequently Asked Questions</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-                    consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
-                    fugiat sit in iste officiis commodi quidem hic quas.</p>
+
             </div><!-- End Section Title -->
 
             <div class="container">
@@ -769,35 +643,32 @@
 
                             <div class="faq-item faq-active" data-aos="fade-up" data-aos-delay="200">
                                 <i class="faq-icon bi bi-question-circle"></i>
-                                <h3>Non consectetur a erat nam at lectus urna duis?</h3>
+                                <h3>How do I register as a visitor in the IUB Visitor Management System?</h3>
                                 <div class="faq-content">
-                                    <p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus
-                                        laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor
-                                        rhoncus dolor purus non.</p>
+                                    <p>Visitors can register by accessing the online portal or using the registration
+                                        kiosk at the campus entrance. You'll need to provide some basic personal
+                                        information and the purpose of your visit.</p>
                                 </div>
                                 <i class="faq-toggle bi bi-chevron-right"></i>
                             </div><!-- End Faq item-->
 
                             <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
                                 <i class="faq-icon bi bi-question-circle"></i>
-                                <h3>Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?</h3>
+                                <h3>What are the requirements for visitor identification?</h3>
                                 <div class="faq-content">
-                                    <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id
-                                        interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus
-                                        scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim.
-                                        Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
+                                    <p>All visitors must present a valid government-issued ID at the registration desk.
+                                        The system will capture details such as your name, photo, and ID number.</p>
                                 </div>
                                 <i class="faq-toggle bi bi-chevron-right"></i>
                             </div><!-- End Faq item-->
 
                             <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
                                 <i class="faq-icon bi bi-question-circle"></i>
-                                <h3>Dolor sit amet consectetur adipiscing elit pellentesque?</h3>
+                                <h3>Can I schedule my visit in advance?</h3>
                                 <div class="faq-content">
-                                    <p>Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci.
-                                        Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl
-                                        suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis
-                                        convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
+                                    <p>Yes, the system allows for advance scheduling. You can book your visit through
+                                        the IUB Visitor Management System's web portal by selecting your preferred date
+                                        and time.
                                     </p>
                                 </div>
                                 <i class="faq-toggle bi bi-chevron-right"></i>
@@ -805,23 +676,22 @@
 
                             <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
                                 <i class="faq-icon bi bi-question-circle"></i>
-                                <h3>Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</h3>
+                                <h3>What happens if I forget to check out on the system after my visit?</h3>
                                 <div class="faq-content">
-                                    <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id
-                                        interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus
-                                        scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim.
-                                        Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
+                                    <p>If you forget to check out, the system will automatically check you out at the
+                                        closing time of the campus. However, for security reasons, it's important to
+                                        manually check out whenever possible.</p>
                                 </div>
                                 <i class="faq-toggle bi bi-chevron-right"></i>
                             </div><!-- End Faq item-->
 
                             <div class="faq-item" data-aos="fade-up" data-aos-delay="600">
                                 <i class="faq-icon bi bi-question-circle"></i>
-                                <h3>Tempus quam pellentesque nec nam aliquam sem et tortor consequat?</h3>
+                                <h3>Are there any restrictions on the areas I can visit within the campus?</h3>
                                 <div class="faq-content">
-                                    <p>Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse
-                                        in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl
-                                        suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
+                                    <p>Yes, visitors can only access areas that are relevant to the purpose of their
+                                        visit. Access restrictions are enforced through the visitor badges that must be
+                                        worn at all times.
                                     </p>
                                 </div>
                                 <i class="faq-toggle bi bi-chevron-right"></i>
@@ -843,7 +713,9 @@
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
                 <h2>Contact</h2>
-                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+                <p>For any inquiries regarding the IUB Visitor Management System, feel free to reach out. Our team is
+                    dedicated to ensuring a seamless and secure visit experience and is available to address any
+                    questions or concerns you may have.</p>
             </div><!-- End Section Title -->
 
             <div class="container" data-aos="fade-up" data-aos-delay="100">

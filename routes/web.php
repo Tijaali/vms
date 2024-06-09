@@ -13,6 +13,7 @@ use App\Mail\requestUpdate;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\TestimonialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -106,6 +107,16 @@ Route::group(['middleware'=>'auth'],function () {
         Route::get('/{event}/edit',[EventController::class,'edit'])->name('event.edit');
         Route::put('/{event}/update',[EventController::class,'update'])->name('event.update');
         Route::get('/{event}/delete',[EventController::class,'delete'])->name('event.delete');
+    });
+    Route::group(["prefix"=>'testimonial'],function () {
+        Route::get('/create',[TestimonialController::class,'create'])->name('testimonial.create');
+        Route::post('/store',[TestimonialController::class,'store'])->name('testimonial.store');
+        Route::get('/list',[TestimonialController::class,'index'])->name('testimonial.index');
+        Route::post('/ajax',[TestimonialController::class,'ajax'])->name('testimonial.ajax');
+        Route::get('/{testimonial}/show',[TestimonialController::class,'show'])->name('testimonial.show');
+        Route::get('/{testimonial}/edit',[TestimonialController::class,'edit'])->name('testimonial.edit');
+        Route::put('/{testimonial}/update',[TestimonialController::class,'update'])->name('testimonial.update');
+        Route::get('/{testimonial}/delete',[TestimonialController::class,'delete'])->name('testimonial.delete');
     });
     Route::get('/applications',[UserController::class,'userApplications'])->name('user.application');
     Route::get('/events',[UserController::class,'eventData'])->name('events');
