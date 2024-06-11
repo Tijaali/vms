@@ -52,7 +52,7 @@
                                         <div class="col-sm-4">
                                             <div class="form-check">
                                                 <label class="form-check-label">
-                                                    <input type="text" class="form-check-input" name="gender"
+                                                    <input type="radio" class="form-check-input" name="gender"
                                                         value="Male" checked>
                                                     Male
                                                 </label>
@@ -61,7 +61,7 @@
                                         <div class="col-sm-5">
                                             <div class="form-check">
                                                 <label class="form-check-label">
-                                                    <input type="text" class="form-check-input" name="gender"
+                                                    <input type="radio" class="form-check-input" name="gender"
                                                         value="Female">
                                                     Female
                                                 </label>
