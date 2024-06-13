@@ -15,7 +15,7 @@ class VisitorCategoryController extends Controller
         //     'name'=>'required|unique:visitor_catgories,name,except,id',
         // ]);
         $visitorCategory->create($request->except('_token'));
-        return redirect()->back();
+        return redirect()->back()->with('alert-success','VisitorCategory has been created successfully');;
         
     }
 
@@ -32,11 +32,11 @@ class VisitorCategoryController extends Controller
         //     'name'=>'required|unique:visitor_catgories,name,except,id',
         // ]);
         $visitorCategory->update($request->except('_token'));
-        return redirect()->route('visitorCategory.index');
+        return redirect()->route('visitorCategory.index')->with('alert-success','VisitorCategory has been updated successfully');;
 
     }
     public function delete(VisitorCategory $visitorCategory){
         $visitorCategory->delete();
-        return redirect()->back();
+        return redirect()->back()->with('alert-success','VisitorCategory has been deleted successfully');;
     }
 }

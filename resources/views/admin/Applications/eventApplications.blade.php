@@ -14,14 +14,17 @@
                                         <thead class="">
                                             <tr>
                                                 <th>No</th>
-                                                <th>image</th>
                                                 <th>Name</th>
                                                 <th>Email</th>
-                                                <th>Gender</th>
-                                                <th>CNIC</th>
                                                 <th>Phone</th>
-                                                <th>Visitee</th>
+                                                <th>CNIC</th>
+                                                <th>Address</th>
+                                                
+                                                <th>Event title</th>
+                                                {{-- <th>Event venue</th> --}}
+                                                <th>Event timings</th>
                                                 <th>Status</th>
+                                                
                                                
                                               
                                             </tr>
@@ -30,21 +33,24 @@
                                             @foreach ($usersAndApp as $visitor)
                                                 <tr>
                                                     <td>{{ $visitor->id }}</td>
-                                                    <td><img src="/storage/{{ $visitor->image }}" alt="" style="width: 50px;height:50px"></td>
-                                                    <td>{{ $visitor->name }}</td>
-                                                    <td>{{ $visitor->email }}</td>
-                                                    <td>{{ $visitor->gender }}</td>
-                                                    <td>{{ $visitor->cnic_number }}</td>
-                                                    <td>{{ $visitor->mobilenumber }}</td>
-                                                    <td>{{ $visitor->visitee }}</td>
-                                                    @if ($visitor->status==null)
-                                                    <td > <span class="badge badge-danger"> pending</span></td>
-                                                    @else
-                                                    <td> <span class="badge badge-success"> {{ $visitor->status }}</span></td>
-                                                    @endif
-                                                    
-                                                    
+                                                    <td>{{ $visitor->user->name }}</td>
+                                                    <td>{{ $visitor->user->email }}</td>
+                                                    <td>{{ $visitor->phone }}</td>
+                                                    <td>{{ $visitor->cnic }}</td>
+                                                    <td>{{ $visitor->address }}</td>
+                                                    <td>{{ $visitor->event->title }}</td>
+                                                    {{-- <td>{{ $visitor->event->venue }}</td> --}}
+                                                    <td>{{ $visitor->event->timing }}</td>
                                                    
+                                                        @if ($visitor->status==null)
+                                                        <td> <span class="badge badge-danger"> pending</span></td>
+                                                        @else
+                                                        <td> <span class="badge badge-success"> {{ $visitor->status }}</span></td>
+                                                        @endif
+                                                  
+                                                    
+                                                    
+
 
                                                    
                                                 </tr>

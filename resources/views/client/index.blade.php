@@ -64,6 +64,9 @@
             </a>
 
             <nav id="navmenu" class="navmenu">
+                <div class="user_option">
+
+                </div>
                 <ul>
                     <li><a href="#hero" class="">Home</a></li>
                     <li><a href="#about">About</a></li>
@@ -75,8 +78,26 @@
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
+            @if (auth()->user())
+                <div class="text-white mx-3">
+                    {{ auth()->user()->name }}
+                </div>
+            @else
+                
+            @endif
+            @if (auth()->user())
+                <a href="{{ route('dashboard') }}" class=" mx-3">Dashboard</a>
+            @endif
 
-            <a class="btn-getstarted" href="#about">Get Started</a>
+            @if (auth()->user())
+                <a href="#" onclick="document.getElementById('form').submit()">Logout</a>
+            @else
+                <a href="{{ route('login') }}" class="btn-getstarted">Login</a>
+            @endif
+            <form hidden action="{{ route('logout') }}" method="post" id="form">
+                @csrf
+            </form>
+            {{-- <a class="btn-getstarted" href="#about">Get Started</a> --}}
 
         </div>
     </header>
@@ -95,7 +116,7 @@
                             Visitor Manager—streamlining entry, ensuring security, and enhancing operational efficiency.
                         </p>
                         <div class="d-flex">
-                            <a href="#about" class="btn-get-started">Get Started</a>
+                            <a href="{{route('visitor.create')}}" class="btn-get-started">Book your visit</a>
                             <a href="https://www.youtube.com/watch?v=kmksyoJn4i4"
                                 class="glightbox btn-watch-video d-flex align-items-center"><i
                                     class="bi bi-play-circle"></i><span>Watch Video</span></a>
@@ -299,7 +320,8 @@
                 <div class="row">
 
                     <div class="col-lg-6 d-flex align-items-center">
-                        <img src="{{ asset('client/assets/img/eff.webp') }}" class="img-fluid" alt="" style="height:500px">
+                        <img src="{{ asset('client/assets/img/eff.webp') }}" class="img-fluid" alt=""
+                            style="height:500px">
                     </div>
 
                     <div class="col-lg-6 pt-4 pt-lg-0 content">
@@ -375,7 +397,7 @@
                             <div class="service-item position-relative">
                                 <div><img src="/storage/{{ $event->brochure }}" alt=""
                                         style="width: 300px; height:200px"></div>
-                                <h4><a href="service-details.html" class="stretched-link">{{ $event->title }}</a>
+                                <h4>{{ $event->title }}
                                 </h4>
                                 <p class="text-primary"><i class="fa-solid fa-clock me-2"></i><span
                                         class="me-5">{{ $event->timing }}</span>
@@ -383,7 +405,8 @@
                                         class="fa-sharp fa-solid fa-building me-2"></i><span>{{ $event->depart->name }}</span>
                                 </p>
                                 <p><strong class="me-2">Venue:</strong>{{ $event->venue }}</p>
-                                <a href="" class="btn btn-primary rounded-pill mt-4">Apply</a>
+                                <a href="{{ route('event.eventRegisteration', [$event->id]) }}"
+                                    class="btn btn-primary rounded-pill mt-4">Apply for Event</a>
                             </div>
                         </div><!-- End Service Item -->
                     @endforeach
@@ -413,7 +436,7 @@
                             campus events. Don’t miss out on the convenience and safety that our system offers.</p>
                     </div>
                     <div class="col-xl-3 cta-btn-container text-center">
-                        <a class="cta-btn align-middle" href="#">Register Now</a>
+                        <a class="cta-btn align-middle" href="{{route('visitor.create')}}">Book your visit now</a>
                     </div>
                 </div>
 
@@ -729,7 +752,7 @@
                                 <i class="bi bi-geo-alt flex-shrink-0"></i>
                                 <div>
                                     <h3>Address</h3>
-                                    <p>A108 Adam Street, New York, NY 535022</p>
+                                    <p>Rabia Hall Rd,Punjab، Bahawalpur, Punjab 63100</p>
                                 </div>
                             </div><!-- End Info Item -->
 
@@ -737,7 +760,7 @@
                                 <i class="bi bi-telephone flex-shrink-0"></i>
                                 <div>
                                     <h3>Call Us</h3>
-                                    <p>+1 5589 55488 55</p>
+                                    <p>(062) 9250235</p>
                                 </div>
                             </div><!-- End Info Item -->
 
@@ -745,12 +768,12 @@
                                 <i class="bi bi-envelope flex-shrink-0"></i>
                                 <div>
                                     <h3>Email Us</h3>
-                                    <p>info@example.com</p>
+                                    <p>info@iub.edu.pk</p>
                                 </div>
                             </div><!-- End Info Item -->
 
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus"
+                                src="https://www.google.com/maps/place/The+Islamia+University+of+Bahawalpur/@29.3935227,71.6890259,16z/data=!4m20!1m13!4m12!1m4!2m2!1d71.6996608!2d29.392896!4e1!1m6!1m2!1s0x393b90c01e9e6953:0x5892bbb535403548!2siub+address!2m2!1d71.6908067!2d29.398084!3m5!1s0x393b90c01e9e6953:0x5892bbb535403548!8m2!3d29.398084!4d71.6908067!16zL20vMDV2ZjI2?entry=ttu"
                                 frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen=""
                                 loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
@@ -828,39 +851,39 @@
             <div class="row gy-4">
                 <div class="col-lg-4 col-md-6 footer-about">
                     <a href="index.html" class="d-flex align-items-center">
-                        <span class="sitename">Arsha</span>
+                        <span class="sitename">VMS</span>
                     </a>
                     <div class="footer-contact pt-3">
-                        <p>A108 Adam Street</p>
-                        <p>New York, NY 535022</p>
-                        <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-                        <p><strong>Email:</strong> <span>info@example.com</span></p>
+                        <p>Rabia Hall Rd,</p>
+                        <p>NPunjab، Bahawalpur, Punjab 63100</p>
+                        <p class="mt-3"><strong>Phone:</strong> <span>(062) 9250235</span></p>
+                        <p><strong>Email:</strong> <span>info@iub.edu.pk</span></p>
                     </div>
                 </div>
 
                 <div class="col-lg-2 col-md-3 footer-links">
                     <h4>Useful Links</h4>
                     <ul>
-                        <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#hero">Home</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#about">About us</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#services">Services</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#team">Team</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-2 col-md-3 footer-links">
                     <h4>Our Services</h4>
                     <ul>
-                        <li><i class="bi bi-chevron-right"></i> <a href="#">Web Design</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="#">Web Development</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="#">Product Management</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="#">Marketing</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#">Campus Security</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#">Visitor Management</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#">Event Sponsering</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#">User friendly Interface</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-4 col-md-12">
                     <h4>Follow Us</h4>
-                    <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
+                    <p>Stay connected with Islamia University of Bahawalpur! Follow us on:</p>
                     <div class="social-links d-flex">
                         <a href=""><i class="bi bi-twitter-x"></i></a>
                         <a href=""><i class="bi bi-facebook"></i></a>
@@ -873,14 +896,10 @@
         </div>
 
         <div class="container copyright text-center mt-4">
-            <p>© <span>Copyright</span> <strong class="px-1 sitename">Arsha</strong> <span>All Rights Reserved</span>
+            <p>© <span>Copyright</span> <strong class="px-1 sitename">VMS</strong> <span>All Rights Reserved</span>
             </p>
             <div class="credits">
-                <!-- All the links in the footer should remain intact. -->
-                <!-- You can delete the links only if you've purchased the pro version. -->
-                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                Designed by Khadija Perveen</a>
             </div>
         </div>
 

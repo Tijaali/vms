@@ -13,6 +13,14 @@
                             </ul>
                         </div>
                     @endif
+                    @if (session('alert-success'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ session('alert-success') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
                     <div class="card-body">
                         <h4 class="card-title">Add new department</h4>
                         <form class="form-sample" action="{{ route('department.store') }}" method="POST">

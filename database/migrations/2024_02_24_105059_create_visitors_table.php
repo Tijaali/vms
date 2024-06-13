@@ -29,6 +29,7 @@ return new class extends Migration
             $table->dateTime('from');
             $table->dateTime('to');
             $table->string('status')->nullable();
+            $table->string('entryStatus')->nullable();
             $table->longText('purpose');
             $table->string('image');
             $table->unsignedBigInteger('user_id');

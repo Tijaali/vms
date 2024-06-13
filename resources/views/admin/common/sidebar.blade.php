@@ -41,6 +41,20 @@
               </ul>
           </div>
       </li>
+      <!-- Manage event Bookings -->
+      <li class="nav-item {{ in_array(Route::currentRouteName(), ['eventRegisteration.create', 'eventRegisteration.index']) ? 'active' : '' }}">
+        <a class="nav-link" data-toggle="collapse" href="#eventRegisteration" aria-expanded="{{ in_array(Route::currentRouteName(), ['eventRegisteration.create', 'eventRegisteration.index']) ? 'true' : 'false' }}" aria-controls="eventRegisteration">
+            <i class="icon-bar-graph menu-icon"></i>
+            <span class="menu-title">Event bookings</span>
+            <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse {{ in_array(Route::currentRouteName(), ['eventRegisteration.create', 'eventRegisteration.index']) ? 'show' : '' }}" id="eventRegisteration">
+            <ul class="nav flex-column sub-menu">
+                {{-- <li class="nav-item"><a class="nav-link {{ Route::currentRouteName() == 'eventRegisteration.create' ? 'active' : '' }}" href="{{ route('eventRegisteration.create') }}">Add new Employee</a></li> --}}
+                <li class="nav-item"><a class="nav-link {{ Route::currentRouteName() == 'eventRegisteration.index' ? 'active' : '' }}" href="{{ route('eventRegisteration.index') }}">Event Bookings</a></li>
+            </ul>
+        </div>
+    </li>
 
       <!-- Roles -->
       <li class="nav-item {{ in_array(Route::currentRouteName(), ['role.create', 'role.index']) ? 'active' : '' }}">
@@ -125,8 +139,8 @@
         </a>
         <div class="collapse" id="testimonial">
             <ul class="nav flex-column sub-menu">
-                <li class="nav-item"><a class="nav-link" href="{{ route('testimonial.create') }}">Create event</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{route('testimonial.index')}}">All events</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('testimonial.create') }}">Create Testimonial</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{route('testimonial.index')}}">All testimonials</a></li>
             </ul>
         </div>
     </li>
@@ -146,6 +160,20 @@
               </ul>
           </div>
       </li>
+      <!-- Manage event Bookings -->
+      <li class="nav-item {{ in_array(Route::currentRouteName(), ['eventRegisteration.create', 'eventRegisteration.index']) ? 'active' : '' }}">
+        <a class="nav-link" data-toggle="collapse" href="#eventRegisteration" aria-expanded="{{ in_array(Route::currentRouteName(), ['eventRegisteration.create', 'eventRegisteration.index']) ? 'true' : 'false' }}" aria-controls="eventRegisteration">
+            <i class="icon-bar-graph menu-icon"></i>
+            <span class="menu-title">Event bookings</span>
+            <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse {{ in_array(Route::currentRouteName(), ['eventRegisteration.create', 'eventRegisteration.index']) ? 'show' : '' }}" id="eventRegisteration">
+            <ul class="nav flex-column sub-menu">
+                {{-- <li class="nav-item"><a class="nav-link {{ Route::currentRouteName() == 'eventRegisteration.create' ? 'active' : '' }}" href="{{ route('eventRegisteration.create') }}">Add new Employee</a></li> --}}
+                <li class="nav-item"><a class="nav-link {{ Route::currentRouteName() == 'eventRegisteration.index' ? 'active' : '' }}" href="{{ route('eventRegisteration.index') }}">Event Bookings</a></li>
+            </ul>
+        </div>
+    </li>
       <!-- Categories (Security Officer) -->
       <li class="nav-item {{ in_array(Route::currentRouteName(), ['visitorCategory.create', 'visitorCategory.index']) ? 'active' : '' }}">
           <a class="nav-link" data-toggle="collapse" href="#category_security" aria-expanded="{{ in_array(Route::currentRouteName(), ['visitorCategory.create', 'visitorCategory.index']) ? 'true' : 'false' }}" aria-controls="category_security">
@@ -182,6 +210,12 @@
               <span class="menu-title">Apply</span>
           </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('user.eventApplications') }}">
+            <i class="icon-grid menu-icon"></i>
+            <span class="menu-title">EventBookings</span>
+        </a>
+    </li>
       <li class="nav-item">
           <a class="nav-link" href="{{ route('user.application') }}">
               <i class="icon-grid menu-icon"></i>

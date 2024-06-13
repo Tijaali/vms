@@ -18,4 +18,7 @@ class Event extends Model
     public function depart() {
         return $this->belongsTo(Department::class,'department_id');
     }
+    public function eventRegisteration(){
+        return $this->hasMany(EventRegisteration::class);
+    }
 }

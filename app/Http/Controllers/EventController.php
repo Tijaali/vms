@@ -72,5 +72,9 @@ class EventController extends Controller
         $event->delete();
         return redirect()->back()->with('alert-success','Event has been deleted successfully');
     }
+    public function eventRegisteration(Event $event) {
+        // dd($event);
+        return view('client.eventBooking', compact('event'));
+    }
     
 }

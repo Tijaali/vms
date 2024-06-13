@@ -43,11 +43,11 @@
                       {{ __('Remember Me') }}
                     </label>
                   </div>
-                  @if (Route::has('password.request'))
-                  <a class="auth-link text-black" href="{{ route('password.request') }}">
-                      {{ __('Forgot Password?') }}
+              
+                  <a class="auth-link text-black" href="{{ route('register') }}">
+                      {{ __('Create new Account') }}
                   </a>
-              @endif
+        
                 </div>
               </form>
             </div>

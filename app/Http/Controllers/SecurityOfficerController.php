@@ -111,7 +111,7 @@ class SecurityOfficerController extends Controller
     public function delete(Request $request, SecurityOfficer $securityOfficer)
     {
         $securityOfficer->delete();
-        return redirect()->back();
+        return redirect()->back()->with('alert-success','Record has been deleted successfully');;
     }
     public function export(Request $request){
         return Excel::download(new ExportSecurityOfficer, 'securityOfficers.xlsx');

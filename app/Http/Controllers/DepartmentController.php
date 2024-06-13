@@ -11,11 +11,9 @@ class DepartmentController extends Controller
         return view('admin.department.create');  
     }
     public function store(Request $request,Department $department){
-        $request->validate([
-            'name'=>'required|unique:departments,name,except,id'
-        ]);
+        
         $department->create($request->except('_token'));
-        return redirect()->back();
+        return redirect()->back()->with('alert-success','Department has been created successfully!');
     }
     public function index() {
         $departments = Department::get();
@@ -29,10 +27,10 @@ class DepartmentController extends Controller
             'name'=>'required|unique:departments,name,except,id'
         ]);
         $department->update($request->except('_token')); 
-        return redirect()->route('department.index');     
+        return redirect()->route('department.index')->with('alert-success','Department has been updated successfully!');     
     }
     public function delete(Department $department){
         $department->delete();
-        return redirect()->back();
+        return redirect()->back()->with('alert-success','Department has been deleted successfully!');
     }
 }

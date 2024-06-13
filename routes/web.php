@@ -3,6 +3,7 @@
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\EventRegisterationController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SecurityOfficerController;
@@ -14,6 +15,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\TestimonialController;
+use App\Models\EventRegisteration;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +52,8 @@ Route::group(['middleware'=>'auth'],function () {
         Route::get('/{visitor}/reject',[VisitorController::class,'reject'])->name('visitor.reject');
         Route::get('/{visitor}/createPdf',[VisitorController::class,'createPdf'])->name('visitor.createPdf');
         Route::get('/export-visitor',[VisitorController::class,'exportVisitor'])->name('visitor.export');
+        Route::get('/{visitor}/entry',[VisitorController::class,'entry'])->name('visitor.entry');
+        Route::get('/{visitor}/exit',[VisitorController::class,'exit'])->name('visitor.exit');
     
     });
     Route::group(["prefix"=>'empoylee'],function () {
@@ -107,6 +111,7 @@ Route::group(['middleware'=>'auth'],function () {
         Route::get('/{event}/edit',[EventController::class,'edit'])->name('event.edit');
         Route::put('/{event}/update',[EventController::class,'update'])->name('event.update');
         Route::get('/{event}/delete',[EventController::class,'delete'])->name('event.delete');
+        Route::get('/{event}/eventRegisteration',[EventController::class,'eventRegisteration'])->name('event.eventRegisteration');
     });
     Route::group(["prefix"=>'testimonial'],function () {
         Route::get('/create',[TestimonialController::class,'create'])->name('testimonial.create');
@@ -118,7 +123,21 @@ Route::group(['middleware'=>'auth'],function () {
         Route::put('/{testimonial}/update',[TestimonialController::class,'update'])->name('testimonial.update');
         Route::get('/{testimonial}/delete',[TestimonialController::class,'delete'])->name('testimonial.delete');
     });
+    Route::group(["prefix"=>'eventRegisteration'],function () {
+        Route::post('/store', [EventRegisterationController::class, 'store'])->name('eventRegisteration.store');
+        Route::get('/list',[EventRegisterationController::class,'index'])->name('eventRegisteration.index');
+        Route::post('/ajax',[EventRegisterationController::class,'ajax'])->name('eventRegisteration.ajax');
+        Route::get('/{eventRegisteration}/show',[EventRegisterationController::class,'show'])->name('eventRegisteration.show');
+        Route::get('/{eventRegisteration}/edit',[EventRegisterationController::class,'edit'])->name('eventRegisteration.edit');
+        Route::put('/{eventRegisteration}/update',[EventRegisterationController::class,'update'])->name('eventRegisteration.update');
+        Route::get('/{eventRegisteration}/delete',[EventRegisterationController::class,'delete'])->name('eventRegisteration.delete');
+        Route::get('/{eventRegisteration}/approve',[EventRegisterationController::class,'approve'])->name('eventRegisteration.approve');
+        Route::get('/{eventRegisteration}/reject',[EventRegisterationController::class,'reject'])->name('eventRegisteration.reject');
+        Route::get('/{eventRegisteration}/entry',[EventRegisterationController::class,'entry'])->name('eventRegisteration.entry');
+        Route::get('/{eventRegisteration}/exit',[EventRegisterationController::class,'exit'])->name('eventRegisteration.exit');
+    });
     Route::get('/applications',[UserController::class,'userApplications'])->name('user.application');
+    Route::get('/eventApplications',[UserController::class,'eventApplications'])->name('user.eventApplications');
     Route::get('/events',[UserController::class,'eventData'])->name('events');
 });
 

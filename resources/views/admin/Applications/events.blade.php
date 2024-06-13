@@ -29,7 +29,7 @@
 
                         </div>
                         <div>
-                            <a href="{{route('visitor.create')}}" class="btn btn-success m-3">Apply to attend</a>
+                            <a href="{{route('event.eventRegisteration',[$event->id])}}" class="btn btn-success m-3">Apply to attend</a>
                         </div>
                     </div>
                 </div>

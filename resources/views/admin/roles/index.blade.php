@@ -1,14 +1,16 @@
 @extends('admin.common.layout')
 @section('page-css')
     <style>
-        table,thead{
+        table,
+        thead {
             border-radius: 20px solid #4B49AC !important;
         }
+
         .datatable {
             font-family: Arial, sans-serif;
             width: 100%;
             border-collapse: collapse;
-            
+
         }
 
         .datatable thead {
@@ -69,20 +71,15 @@
                                 Generate Report
                             </a>
                         </div>
+                        @if (session('alert-success'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                {{ session('alert-success') }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        @endif
                         <div class="row">
-                            {{-- <div class="col-12">
-                                // Notifications //
-                                <div class="container">
-                                    <div class="notifications">
-                                        <h4>Notifications</h4>
-                                        <ul>
-                                            @foreach ($notifications as $notification)
-                                                <li>{{ $notification->message }}
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div> --}}
                             <div class="col-12">
                                 <div class="">
                                     <table class="datatable" style="width:100%">
@@ -90,7 +87,7 @@
                                             <tr>
                                                 <th>No</th>
                                                 <th>Role
-                                                {{-- <th>Permissions</th> --}}
+                                                    {{-- <th>Permissions</th> --}}
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>

@@ -47,6 +47,9 @@ class User extends Authenticatable
     }
     public function visitor(){
         return $this->hasOne(Visitor::class);
-        }
+    }
+    public function eventRegisteration(){
+        return $this->hasMany(EventRegisteration::class);
+    }
 
 }

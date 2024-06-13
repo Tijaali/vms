@@ -15,7 +15,7 @@ class PermissionController extends Controller
             'name'=>'required|unique:permissions,name,except,id'
         ]);
         $permission->create($request->except('_token'));
-        return redirect()->back();
+        return redirect()->back()->with('alert-success','Permission has been created successfully');
     }
     public function index() {
         $permissions = Permission::get();
@@ -29,10 +29,10 @@ class PermissionController extends Controller
             'name'=>'required|unique:permissions,name,except,id'
         ]);
         $permission->update($request->except('_token')); 
-        return redirect()->route('permission.index');     
+        return redirect()->route('permission.index')->with('alert-success','Permission has been updated successfully');     
     }
     public function delete(Permission $permission){
         $permission->delete();
-        return redirect()->back();
+        return redirect()->back()->with('alert-success','Permission has been deleted successfully');
     }
 }

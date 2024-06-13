@@ -84,8 +84,6 @@ class VisitorController extends Controller
     }
     public function index()
     {
-        // $notifications = Notification::orderBy('created_at', 'desc')->take(10)->get();
-        // return view('admin.visitors.index', compact('notifications'));
         return view('admin.visitors.index');
     }
     public function show(Request $request, Visitor $visitor)
@@ -141,27 +139,9 @@ class VisitorController extends Controller
         $visitor->status = 'approved';
         $visitor->save();
         
-
-        // Logic to mark the application as accepted
-        // ...
-
-        // Send acceptance email
         Mail::to($visitor->email)->send(new ApplicationAccepted($visitor));
 
-        return redirect()->back()->with('success', 'Application accepted and email sent.');
-
-        // // Add a notification for the visitor approval
-        // Notification::create([
-        //     'visitor_id' => $visitor->id,
-        //     'message' => "Visitor {$visitor->name} has been approved." // Adjust according to your notification structure
-        // ]);
-
-        // // Check if the request expects a JSON response (AJAX call)
-        // if ($request->expectsJson()) {
-        //     return response()->json(['message' => 'Visitor has been approved and notified.']);
-        // }
-
-        // return redirect()->back()->with('success', 'Visitor has been approved and notified.');
+        return redirect()->back()->with('alert-success', 'Application accepted and email sent.');
     }
 
     public function reject(Request $request, Visitor $visitor)
@@ -170,7 +150,7 @@ class VisitorController extends Controller
         $visitor->save();
         Mail::to($visitor->email)->send(new ApplicationRejected($visitor));
 
-        return redirect()->back()->with('success', 'Application rejected and email sent.');
+        return redirect()->back()->with('alert-success', 'Application rejected and email sent.');
     }
 
 
@@ -183,5 +163,19 @@ class VisitorController extends Controller
     {
 
         return Excel::download(new ExportVisitor, 'visitors.xlsx');
+    }
+    public function entry(Request $request, Visitor $visitor)
+    {
+        $visitor->entryStatus = 'entered';
+        $visitor->save();
+
+        return redirect()->back()->with('alert-success','Visito has been entered ');;
+    }
+    public function exit(Request $request, Visitor $visitor)
+    {
+        $visitor->entryStatus = 'exited';
+        $visitor->save();
+
+        return redirect()->back()->with('alert-success','Visitor has been exited ');
     }
 }

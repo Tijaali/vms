@@ -5,12 +5,20 @@
             <div class="col-md-12 grid-margin">
                 <div class="row">
                     <div class="col-md-6 mb-4 mb-xl-0">
-                        <h3 class="font-weight-bold">{{$securityOfficer->name}}</h3>
+                        <h3 class="font-weight-bold">{{ $securityOfficer->name }}</h3>
                         <h6 class="font-weight-normal mb-0">All systems are running smoothly! </h6>
                     </div>
                 </div>
             </div>
         </div>
+        @if (session('alert-success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('alert-success') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
         <div class="row">
             <div class="col-md-8 grid-margin stretch-card">
                 <div class="card">
@@ -148,12 +156,12 @@
             <div class="col-md-4 grid-margin stretch-card">
                 <div class="card mb-4">
                     <div class="card-body text-center">
-                        <img src="/storage/{{$securityOfficer->image}}" alt="avatar"
-                            class="rounded-circle img-fluid" style="width: 150px;">
-                        <h5 class="my-3">{{$securityOfficer->fname}}</h5>
-                        <p class="text-muted mb-1">{{$securityOfficer->designation}}</p>
-                        <p class="text-muted mb-4">{{$securityOfficer->address1}}</p>
-                       
+                        <img src="/storage/{{ $securityOfficer->image }}" alt="avatar" class="rounded-circle img-fluid"
+                            style="width: 150px;">
+                        <h5 class="my-3">{{ $securityOfficer->fname }}</h5>
+                        <p class="text-muted mb-1">{{ $securityOfficer->designation }}</p>
+                        <p class="text-muted mb-4">{{ $securityOfficer->address1 }}</p>
+
                     </div>
                 </div>
             </div>

@@ -13,6 +13,14 @@
                             </ul>
                         </div>
                     @endif
+                    @if (session('alert-success'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ session('alert-success') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
                     <div class="card-body">
                         <h4 class="card-title">Add new visitor</h4>
                         <form class="form-sample" action="{{ route('visitor.store') }}" method="POST"
@@ -26,10 +34,8 @@
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">First Name</label>
                                         <div class="col-sm-9">
-                                            <input type="text" name="name" placeholder="Name"
-                                                class="form-control" @if (Auth::user()->hasRole('visitor'))
-                                                   value={{Auth::user()->name}} readonly
-                                                @endif  />
+                                            <input type="text" name="name" placeholder="Name" class="form-control"
+                                                @if (Auth::user()->hasRole('visitor')) value={{ Auth::user()->name }} readonly @endif />
                                         </div>
                                     </div>
                                 </div>
@@ -37,10 +43,8 @@
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Email</label>
                                         <div class="col-sm-9">
-                                            <input type="email" name="email" placeholder="Email"
-                                                class="form-control" @if (Auth::user()->hasRole('visitor')) 
-                                                value={{Auth::user()->email}} readonly
-                                             @endif />
+                                            <input type="email" name="email" placeholder="Email" class="form-control"
+                                                @if (Auth::user()->hasRole('visitor')) value={{ Auth::user()->email }} readonly @endif />
                                         </div>
                                     </div>
                                 </div>
@@ -74,7 +78,7 @@
                                         <label class="col-sm-3 col-form-label">Password</label>
                                         <div class="col-sm-9">
                                             <input type="password" name="password" placeholder="Password"
-                                                class="form-control" maxlength="10" required="true"/>
+                                                class="form-control" maxlength="10" required="true" />
                                         </div>
                                     </div>
                                 </div>
@@ -191,7 +195,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label" >Photo</label>
+                                        <label class="col-sm-3 col-form-label">Photo</label>
                                         <div class="input-group col-sm-9">
                                             <input type="file" name="image" class="form-control file-upload-info" />
                                         </div>

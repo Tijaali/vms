@@ -60,12 +60,20 @@
                     <div class="card-body">
                         <p class="card-title">All securityOfficers</p>
                         <div class="col-md-6 mb-4 mb-xl-0">
-                            <a id="generateReportBtn"
-                                class="btn btn-sm btn-primary shadow-sm" href="{{route('employee.export')}}">
+                            <a id="generateReportBtn" class="btn btn-sm btn-primary shadow-sm"
+                                href="{{ route('employee.export') }}">
                                 <i class="mdi mdi-arrow-down-bold-hexagon-outline text-white"></i>
                                 Generate Report
                             </a>
                         </div>
+                        @if (session('alert-success'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                {{ session('alert-success') }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        @endif
                         <div class="row">
                             <div class="col-12">
                                 <div class="table-responsive">
@@ -111,7 +119,7 @@
                     },
                     {
                         data: 'image',
-                        render:function(data){
+                        render: function(data) {
                             return `<img src='/storage/${data}'>`;
                         }
                     },

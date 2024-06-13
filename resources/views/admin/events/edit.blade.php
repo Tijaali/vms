@@ -13,9 +13,17 @@
                             </ul>
                         </div>
                     @endif
+                    @if (session('alert-success'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ session('alert-success') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
                     <div class="card-body">
                         <h4 class="card-title">Add new event</h4>
-                        <form class="form-sample" action="{{ route('event.update',[$event->id]) }}" method="POST"
+                        <form class="form-sample" action="{{ route('event.update', [$event->id]) }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
@@ -24,7 +32,8 @@
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Event title</label>
                                         <div class="col-sm-9">
-                                            <input type="text" name="title" placeholder="Name" class="form-control" value="{{old('title',$event->title)}}"/>
+                                            <input type="text" name="title" placeholder="Name" class="form-control"
+                                                value="{{ old('title', $event->title) }}" />
                                         </div>
                                     </div>
                                 </div>
@@ -34,9 +43,9 @@
                                         <div class="col-sm-9">
                                             <select class="form-control" name="department_id">
                                                 @foreach (App\Models\Department::allDepartments() as $depart)
-                                                    <option value="{{ $depart->id }}" @if ($depart->id==$event->depart->id)
-                                                        selected
-                                                    @endif>{{ $depart->name }}</option>
+                                                    <option value="{{ $depart->id }}"
+                                                        @if ($depart->id == $event->depart->id) selected @endif>
+                                                        {{ $depart->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -48,16 +57,18 @@
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Timings </label>
                                         <div class="col-sm-9">
-                                            <input type="datetime-local" class="form-control" name="timing" value="{{old('timing',$event->timing)}}" />
+                                            <input type="datetime-local" class="form-control" name="timing"
+                                                value="{{ old('timing', $event->timing) }}" />
                                         </div>
                                     </div>
 
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="form-group row"> 
+                                    <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Venue </label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" name="venue" value="{{old('venue',$event->venue)}}" />
+                                            <input type="text" class="form-control" name="venue"
+                                                value="{{ old('venue', $event->venue) }}" />
                                         </div>
                                     </div>
 
@@ -69,7 +80,7 @@
                                         <label class="col-sm-3 col-form-label">Brochure</label>
                                         <div class="input-group col-sm-9">
                                             <input type="file" name="brochure" class="form-control file-upload-info" />
-                                            <img src="/storage/{{ $event->brochure}}" width="50px" height="45px">
+                                            <img src="/storage/{{ $event->brochure }}" width="50px" height="45px">
                                         </div>
                                     </div>
                                 </div>

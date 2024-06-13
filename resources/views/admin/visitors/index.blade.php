@@ -50,6 +50,15 @@
             height: auto;
             border-radius: 50%;
         }
+
+        .green-border {
+            border: 4px solid rgb(11, 178, 11);
+
+            box-shadow: -30px 9px 189px -6px rgba(11, 178, 11, 0.3) !important;
+            -webkit-box-shadow: -30px 9px 189px -6px rgba(11, 178, 11, 0.3) !important;
+            -moz-box-shadow: -30px 9px 189px -6px rgba(11, 178, 11, 0.3) !important;
+            filter: drop-shadow(1px 1px 6px green);
+        }
     </style>
 @endsection
 @section('content')
@@ -60,26 +69,22 @@
                     <div class="card-body">
                         <p class="card-title">All visitors</p>
                         <div class="col-md-6 mb-4 mb-xl-0">
-                            <a id="generateReportBtn"
-                                class="btn btn-sm btn-primary shadow-sm" href="{{route('visitor.export')}}">
+                            <a id="generateReportBtn" class="btn btn-sm btn-primary shadow-sm"
+                                href="{{ route('visitor.export') }}">
                                 <i class="mdi mdi-arrow-down-bold-hexagon-outline text-white"></i>
                                 Generate Report
                             </a>
                         </div>
+                        @if (session('alert-success'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                {{ session('alert-success') }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        @endif
                         <div class="row">
-                            {{-- <div class="col-12">
-                                // Notifications //
-                                <div class="container">
-                                    <div class="notifications">
-                                        <h4>Notifications</h4>
-                                        <ul>
-                                            @foreach ($notifications as $notification)
-                                                <li>{{ $notification->message }}
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div> --}}
+
                             <div class="col-12">
                                 <div class="">
                                     <table class="datatable" style="width:100%">
@@ -126,8 +131,10 @@
                     },
                     {
                         data: 'image',
-                        render: function(data) {
-                            return `<img src='/storage/${data}' style='width:70px;height:70px'>`;
+                        render: function(data, type, row) {
+                            // Apply green border if entryStatus is 'entered'
+                            const borderClass = row.entryStatus === 'entered' ? 'green-border' : '';
+                            return `<img src='/storage/${data}' class='${borderClass}' style='width:70px; height:70px;'>`;
                         }
                     },
                     {
@@ -139,7 +146,7 @@
                     {
                         data: 'category'
                     },
-                    
+
                     {
                         data: 'status',
                         render: function(data) {
@@ -151,10 +158,10 @@
                         render: function(data) {
                             return `
                             <div class='d-flex'>
-                                <button type="button" class="btn btn-primary p-2 my-2" onclick="alertConfirm('{{ route('visitor.approve', ['visitor' => ':visitor']) }}'.replace(/:visitor/g, ${data}),'confirm','Are you sure you want to allow','warning','allow','cancel')">
+                                <button type="button" class="btn btn-primary p-2 my-2" onclick="alertConfirm('{{ route('visitor.entry', ['visitor' => ':visitor']) }}'.replace(/:visitor/g, ${data}),'confirm','Are you sure you want to enter','warning','entered','cancel')">
                           Entry
                         </button>
-                            <button type="button" class="btn btn-danger p-2 my-2" onclick="alertConfirm('{{ route('visitor.reject', ['visitor' => ':visitor']) }}'.replace(/:visitor/g, ${data}),'confirm','Are you sure you want to reject','warning','reject','cancel')">
+                            <button type="button" class="btn btn-danger p-2 my-2" onclick="alertConfirm('{{ route('visitor.exit', ['visitor' => ':visitor']) }}'.replace(/:visitor/g, ${data}),'confirm','Are you sure you want to exit','warning','exited','cancel')">
                           Exit
                         </button>
                       </div>`;

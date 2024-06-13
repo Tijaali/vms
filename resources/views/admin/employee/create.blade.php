@@ -13,9 +13,18 @@
                             </ul>
                         </div>
                     @endif
+                    @if (session('alert-success'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ session('alert-success') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
                     <div class="card-body">
                         <h4 class="card-title">Add new securityOfficer</h4>
-                        <form class="form-sample" action="{{route('empoylee.store')}}" method="POST" enctype="multipart/form-data">
+                        <form class="form-sample" action="{{ route('empoylee.store') }}" method="POST"
+                            enctype="multipart/form-data">
                             @csrf
                             <p class="card-description">
                                 Personal info
@@ -25,8 +34,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label"> Name</label>
                                         <div class="col-sm-9">
-                                            <input type="text" name="name" placeholder="Name"
-                                                class="form-control" />
+                                            <input type="text" name="name" placeholder="Name" class="form-control" />
                                         </div>
                                     </div>
                                 </div>
@@ -34,15 +42,14 @@
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Email</label>
                                         <div class="col-sm-9">
-                                            <input type="email" name="email" placeholder="Email"
-                                                class="form-control" />
+                                            <input type="email" name="email" placeholder="Email" class="form-control" />
                                         </div>
                                     </div>
                                 </div>
-                               
+
                             </div>
                             <div class="row">
-                                
+
                                 <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Password</label>
@@ -77,14 +84,14 @@
                                 </div>
                             </div>
                             <div class="row">
-                                
+
                                 <div class="col-md-6">
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Date of Birth</label>
-                                            <div class="col-sm-9">
-                                                <input type="datetime-local" class="form-control" name="date_of_birth" />
-                                            </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">Date of Birth</label>
+                                        <div class="col-sm-9">
+                                            <input type="datetime-local" class="form-control" name="date_of_birth" />
                                         </div>
+                                    </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group row">
@@ -99,7 +106,7 @@
                             </div>
 
                             <div class="row">
-                               
+
                                 <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">CNIC </label>
@@ -121,7 +128,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                
+
                                 <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Address2 </label>
@@ -173,7 +180,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label">Shift end timing  </label>
+                                        <label class="col-sm-3 col-form-label">Shift end timing </label>
                                         <div class="col-sm-9">
                                             <input type="datetime-local" class="form-control" name="shift_end" />
                                         </div>
@@ -193,9 +200,9 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label" >Photo</label>
+                                        <label class="col-sm-3 col-form-label">Photo</label>
                                         <div class="input-group col-sm-9">
-                                            <input type="file" name="image" class="form-control file-upload-info"/>
+                                            <input type="file" name="image" class="form-control file-upload-info" />
                                         </div>
                                     </div>
 

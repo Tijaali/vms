@@ -8,10 +8,18 @@
                         <h3 class="font-weight-bold">{{ $visitor->name }}</h3>
                         <h6 class="font-weight-normal mb-0">All systems are running smoothly! </h6>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
+        @if (session('alert-success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('alert-success') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
         <div class="row">
             <div class="col-md-8 grid-margin stretch-card">
                 <div class="card">
@@ -20,7 +28,7 @@
                             Personal info
                         </p>
                         <div class="row m-3">
-                            
+
                             <div class="col-md-12">
                                 <div class="row">
                                     <label class="col-sm-3 p-2">Name</label>
@@ -146,8 +154,10 @@
                         <p class="text-muted mb-1">{{ $visitor->category->name }}</p>
                         <p class="text-muted mb-4">{{ $visitor->address1 }}</p>
                         <div class="d-flex justify-content-center mb-2">
-                            <button type="button" class="btn btn-primary" onclick="alertConfirm('{{ route('visitor.approve', [$visitor->id]) }}','confirm','Are you sure you want to allow','warning','allow','cancel')">Allow</button>
-                            <button type="button" class="btn btn-outline-primary ms-1" onclick="alertConfirm('{{ route('visitor.reject', [$visitor-> id]) }}','confirm','Are you sure you want to reject','warning','reject','cancel')">Deny</button>
+                            <button type="button" class="btn btn-primary"
+                                onclick="alertConfirm('{{ route('visitor.approve', [$visitor->id]) }}','confirm','Are you sure you want to allow','warning','allow','cancel')">Allow</button>
+                            <button type="button" class="btn btn-outline-primary ms-1"
+                                onclick="alertConfirm('{{ route('visitor.reject', [$visitor->id]) }}','confirm','Are you sure you want to reject','warning','reject','cancel')">Deny</button>
                         </div>
                     </div>
                 </div>

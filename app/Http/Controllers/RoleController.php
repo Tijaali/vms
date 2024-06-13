@@ -24,7 +24,7 @@ class RoleController extends Controller
     public function store(Request $request){
         $role=Role::create(['name' => $request->input('name')]);
         $role->syncPermissions($request->input('permission_id'));
-        return redirect()->back();
+        return redirect()->back()->with('alert-success','Role has been created successfully');;
     }
     public function index(){
         $roles = Role::get();
@@ -50,11 +50,11 @@ class RoleController extends Controller
     public function update(Request $request,Role $role){
         $role->update($request->except("_token"));
         $role->syncPermissions($request->input('permission_id'));
-        return redirect()->route('role.index');
+        return redirect()->route('role.index')->with('alert-success','Role has been updated successfully');;
     }
     public function delete(Role $role) {
         $role->delete();
-        return redirect()->back();
+        return redirect()->back()->with('alert-success','Role has been deleted successfully');;
         
     }
 }
